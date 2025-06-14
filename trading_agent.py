@@ -25,30 +25,50 @@ api_secret = os.getenv('BINANCE_API_SECRET')
 if not api_key or not api_secret:
     raise ValueError("API Key atau Secret Key tidak ditemukan di file .env!")
 
-# Inisialisasi Binance Live
+# Inisialisasi Binance Live dengan timeout lebih besar
 exchange = ccxt.binance({
     'apiKey': api_key,
     'secret': api_secret,
     'enableRateLimit': True,
-    'options': {'defaultType': 'spot'}
+    'timeout': 30000,  # Timeout 30 detik
+    'options': {'defaultType': 'spot'},
+    'urls': {
+        'api': {
+            'public': 'https://api1.binance.com/api',  # Endpoint alternatif
+            'private': 'https://api1.binance.com/sapi'
+        }
+    }
 })
 
-# Preload markets dengan logging rinci
-try:
-    logging.info("Memuat markets...")
-    exchange.load_markets()
-    logging.info("Markets berhasil dimuat.")
-except ccxt.AuthenticationError:
-    logging.error("Autentikasi gagal. Periksa API Key dan Secret Key.")
-    raise ValueError("Autentikasi gagal. Periksa API Key dan Secret Key di .env.")
-except ccxt.NetworkError as e:
-    logging.error(f"Kesalahan jaringan saat load markets: {e}")
-    raise Exception(f"Kesalahan jaringan: {e}")
-except ccxt.BaseError as e:
-    logging.error(f"Error saat load markets: {e}")
-    print(f"Error saat load markets: {e}")
+# Preload markets dengan retry
+def load_markets_with_retry(max_retries=3, delay=5):
+    for attempt in range(max_retries):
+        try:
+            logging.info("Memuat markets...")
+            exchange.load_markets()
+            logging.info("Markets berhasil dimuat.")
+            return True
+        except ccxt.RequestTimeout as e:
+            logging.warning(f"Timeout saat load markets (percobaan {attempt+1}/{max_retries}): {e}")
+            print(f"Timeout saat load markets, mencoba lagi dalam {delay} detik...")
+            time.sleep(delay)
+        except ccxt.AuthenticationError:
+            logging.error("Autentikasi gagal. Periksa API Key dan Secret Key.")
+            raise ValueError("Autentikasi gagal. Periksa API Key dan Secret Key di .env.")
+        except ccxt.NetworkError as e:
+            logging.error(f"Kesalahan jaringan saat load markets: {e}")
+            print(f"Kesalahan jaringan: {e}")
+            time.sleep(delay)
+        except ccxt.BaseError as e:
+            logging.error(f"Error saat load markets: {e}")
+            print(f"Error saat load markets: {e}")
+            time.sleep(delay)
     # Fallback: set markets secara manual untuk BTC/USDT
     exchange.markets = {'BTC/USDT': {'symbol': 'BTC/USDT', 'active': True, 'precision': {'amount': 8, 'price': 8}}}
+    logging.warning("Gagal memuat markets, menggunakan fallback untuk BTC/USDT.")
+    return False
+
+load_markets_with_retry()
 
 # Fungsi cek saldo
 def check_balance(symbol='BTC/USDT'):
@@ -64,9 +84,9 @@ def check_balance(symbol='BTC/USDT'):
         print(f"Error saat cek saldo: {e}")
         return 0, 0
 
-# Fungsi ambil data dengan retry untuk rate limit
-def get_ohlcv(symbol, timeframe, limit=100):
-    for attempt in range(3):
+# Fungsi ambil data dengan retry untuk rate limit dan timeout
+def get_ohlcv(symbol, timeframe, limit=100, max_retries=3, delay=5):
+    for attempt in range(max_retries):
         try:
             ohlcv = exchange.fetch_ohlcv(symbol, timeframe, limit=limit)
             df = pd.DataFrame(ohlcv, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
@@ -74,17 +94,21 @@ def get_ohlcv(symbol, timeframe, limit=100):
             logging.info(f"Berhasil mengambil data {symbol} timeframe {timeframe}")
             return df
         except ccxt.RateLimitExceeded:
-            logging.warning("Rate limit terlampaui, mencoba lagi dalam 5 detik...")
-            print("Rate limit terlampaui, mencoba lagi dalam 5 detik...")
-            time.sleep(5)
+            logging.warning(f"Rate limit terlampaui, mencoba lagi dalam {delay} detik...")
+            print(f"Rate limit terlampaui, mencoba lagi dalam {delay} detik...")
+            time.sleep(delay)
+        except ccxt.RequestTimeout:
+            logging.warning(f"Timeout saat fetch OHLCV (percobaan {attempt+1}/{max_retries}), mencoba lagi dalam {delay} detik...")
+            print(f"Timeout saat fetch OHLCV, mencoba lagi dalam {delay} detik...")
+            time.sleep(delay)
         except ccxt.AuthenticationError:
             logging.error("Autentikasi gagal saat fetch OHLCV. Periksa API Key.")
             raise ValueError("Autentikasi gagal saat fetch OHLCV. Periksa API Key.")
         except ccxt.BaseError as e:
             logging.error(f"Error saat fetch OHLCV: {e}")
             print(f"Error saat fetch OHLCV: {e}")
-            time.sleep(5)
-    raise Exception("Gagal mengambil data setelah 3 percobaan.")
+            time.sleep(delay)
+    raise Exception(f"Gagal mengambil data {symbol} setelah {max_retries} percobaan.")
 
 # Tambah indikator teknikal
 def add_indicators(df):
