@@ -1,0 +1,29 @@
+2025-06-15 13:15:50,394 - INFO - ✅ Successfully retrieved 458 rows for BBCA.JK 5m
+2025-06-15 13:15:50,450 - INFO - ✅ Technical indicators calculated successfully. Shape: (458, 47)
+2025-06-15 13:15:50,600 - INFO - ✅ Successfully retrieved 157 rows for BBCA.JK 15m
+2025-06-15 13:15:50,766 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:15:50,809 - INFO - ✅ Technical indicators calculated successfully. Shape: (157, 47)
+2025-06-15 13:15:50,856 - INFO - ✅ Technical indicators calculated successfully. Shape: (204, 47)
+2025-06-15 13:15:51,018 - INFO - ✅ Successfully retrieved 157 rows for BBCA.JK 15m
+2025-06-15 13:15:51,073 - INFO - ✅ Technical indicators calculated successfully. Shape: (157, 47)
+2025-06-15 13:15:51,263 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:15:51,436 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1d
+2025-06-15 13:15:51,478 - INFO - ✅ Technical indicators calculated successfully. Shape: (204, 47)
+2025-06-15 13:15:51,509 - INFO - ✅ Technical indicators calculated successfully. Shape: (60, 47)
+2025-06-15 13:15:51,701 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:15:51,744 - INFO - ✅ Technical indicators calculated successfully. Shape: (204, 47)
+2025-06-15 13:15:51,930 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1d
+2025-06-15 13:15:52,132 - INFO - ✅ Successfully retrieved 53 rows for BBCA.JK 1wk
+2025-06-15 13:15:52,164 - INFO - ✅ Technical indicators calculated successfully. Shape: (60, 47)
+2025-06-15 13:15:52,199 - INFO - ✅ Technical indicators calculated successfully. Shape: (53, 47)
+2025-06-15 13:15:52,432 - INFO - ✅ Successfully retrieved 236 rows for BBCA.JK 1d
+2025-06-15 13:15:52,474 - INFO - ✅ Technical indicators calculated successfully. Shape: (236, 47)
+2025-06-15 13:15:52,640 - INFO - ✅ Successfully retrieved 105 rows for BBCA.JK 1wk
+2025-06-15 13:15:52,818 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1mo
+2025-06-15 13:15:52,915 - INFO - ✅ Technical indicators calculated successfully. Shape: (105, 47)
+2025-06-15 13:15:52,946 - INFO - ✅ Technical indicators calculated successfully. Shape: (60, 47)
+2025-06-15 13:15:52,952 - INFO - Multi-timeframe data prepared: 236 rows, base timeframe: 1d
+2025-06-15 13:15:52,964 - INFO - Target distribution: {0: 155, 1: 80}
+2025-06-15 13:15:53,191 - INFO - Dataset prepared: 310 samples, 48 features
+2025-06-15 13:16:06,701 - ERROR - Error training model: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
