@@ -7,6 +7,7 @@ from xgboost import XGBClassifier
 from sklearn.model_selection import train_test_split, GridSearchCV, TimeSeriesSplit
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.calibration import CalibratedClassifierCV, calibration_curve
 import matplotlib.pyplot as plt
 from imblearn.over_sampling import SMOTE
 from dotenv import load_dotenv
@@ -15,6 +16,7 @@ import requests
 import numpy as np
 import warnings
 from datetime import datetime, timedelta
+from logger import TradingLogger
 
 warnings.filterwarnings('ignore')
 
@@ -26,117 +28,55 @@ class TelegramHandler(logging.Handler):
         self.chat_id = chat_id
 
     def emit(self, record):
-        log_entry = self.format(record)
-        url = f"https://api.telegram.org/bot{self.bot_token}/sendMessage"
-        data = {"chat_id": self.chat_id, "text": log_entry, "parse_mode": "HTML"}
         try:
+            log_entry = self.format(record)
+            # Ensure message is within Telegram's 4096-char limit
+            max_length = 4096
+            if len(log_entry) > max_length:
+                log_entry = log_entry[:max_length-3] + "..."
+            url = f"https://api.telegram.org/bot{self.bot_token}/sendMessage"
+            data = {"chat_id": self.chat_id, "text": log_entry, "parse_mode": "HTML"}
             response = requests.post(url, data=data, timeout=10)
             if response.status_code != 200:
-                print(f"Failed to send Telegram message: {response.status_code}")
+                logging.error(f"Failed to send Telegram message: {response.status_code}, Response: {response.text}")
         except Exception as e:
-            print(f"Telegram send error: {e}")
+            logging.error(f"Telegram send error: {e}")
 
 # Setup logging with Telegram integration
-load_dotenv()
-telegram_bot_token = os.getenv('TELEGRAM_BOT_TOKEN')
-telegram_chat_id = os.getenv('TELEGRAM_CHAT_ID')
+try:
+    load_dotenv()
+    telegram_bot_token = os.getenv('TELEGRAM_BOT_TOKEN')
+    telegram_chat_id = os.getenv('TELEGRAM_CHAT_ID')
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('detailed_trading_log.txt', encoding='utf-8'),
-        logging.StreamHandler()
-    ]
-)
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler('./detailed_trading_log.txt', encoding='utf-8'),
+            logging.StreamHandler()
+        ]
+    )
 
-# Add Telegram handler if credentials are available
-if telegram_bot_token and telegram_chat_id:
-    telegram_handler = TelegramHandler(telegram_bot_token, telegram_chat_id)
-    telegram_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
-    logging.getLogger().addHandler(telegram_handler)
-
-class TradingLogger:
-    def __init__(self):
-        self.trades = []
-        self.daily_summary = {}
-    
-    def log_trade(self, trade_type, price, shares, profit=None, reason=None, timestamp=None, balance=None, indicators=None):
-        trade_info = {
-            'timestamp': timestamp or datetime.now(),
-            'type': trade_type,
-            'price': price,
-            'shares': shares,
-            'profit': profit,
-            'reason': reason,
-            'balance': balance,
-            'indicators': indicators or {}
-        }
-        self.trades.append(trade_info)
-        
-        # Log trade with detailed format
-        if trade_type == 'buy':
-            msg = f"🟢 BUY  | {timestamp} | {shares:>6.0f} shares @ Rp{price:>8.0f} | Balance: Rp{balance:>12,.0f}"
-            if indicators:
-                msg += f" | RSI:{indicators.get('rsi', 0):.1f} MACD:{indicators.get('macd', 0):.3f} Prob:{indicators.get('probability', 0):.2f}"
-        else:
-            profit_pct = (profit / (shares * price - profit)) * 100 if shares and price and (shares * price - profit) != 0 else 0
-            msg = f"🔴 SELL | {timestamp} | {shares:>6.0f} shares @ Rp{price:>8.0f} | Profit: Rp{profit:>8,.0f} ({profit_pct:>5.1f}%) | {reason} | Balance: Rp{balance:>12,.0f}"
-        
-        print(msg)
-        logging.info(msg)
-    
-    def get_trade_summary(self):
-        if not self.trades:
-            return "No trades executed"
-        
-        buy_trades = [t for t in self.trades if t['type'] == 'buy']
-        sell_trades = [t for t in self.trades if t['type'] == 'sell' and t['profit'] is not None]
-        
-        total_trades = len(sell_trades)
-        profitable_trades = len([t for t in sell_trades if t['profit'] > 0])
-        win_rate = (profitable_trades / total_trades * 100) if total_trades > 0 else 0
-        
-        total_profit = sum(t['profit'] for t in sell_trades)
-        avg_profit = total_profit / total_trades if total_trades > 0 else 0
-        
-        best_trade = max(sell_trades, key=lambda x: x['profit']) if sell_trades else None
-        worst_trade = min(sell_trades, key=lambda x: x['profit']) if sell_trades else None
-        
-        summary = f"""
-═══════════════════════════════════════════════════════════════
-                         TRADING SUMMARY
-═══════════════════════════════════════════════════════════════
-📊 Total Transactions: {total_trades}
-🎯 Win Rate: {win_rate:.1f}% ({profitable_trades}/{total_trades})
-💰 Total Profit: Rp {total_profit:,.0f}
-📈 Average Profit/Trade: Rp {avg_profit:,.0f}
-"""
-        
-        if best_trade:
-            summary += f"🚀 Best Trade: Rp {best_trade['profit']:,.0f} on {best_trade['timestamp'].strftime('%Y-%m-%d %H:%M')}\n"
-        if worst_trade:
-            summary += f"📉 Worst Trade: Rp {worst_trade['profit']:,.0f} on {worst_trade['timestamp'].strftime('%Y-%m-%d %H:%M')}\n"
-        
-        sell_reasons = {}
-        for trade in sell_trades:
-            reason = trade['reason']
-            if reason not in sell_reasons:
-                sell_reasons[reason] = {'count': 0, 'profit': 0}
-            sell_reasons[reason]['count'] += 1
-            sell_reasons[reason]['profit'] += trade['profit']
-        
-        summary += "\n📋 Sell Reasons Analysis:\n"
-        for reason, data in sell_reasons.items():
-            avg_profit_reason = data['profit'] / data['count']
-            summary += f"   {reason}: {data['count']} trades, Avg: Rp {avg_profit_reason:.0f}\n"
-        summary += "═══════════════════════════════════════"
-        
-        logging.info(summary)
-        return summary
+    # Add Telegram handler if credentials are available
+    if telegram_bot_token and telegram_chat_id:
+        telegram_handler = TelegramHandler(telegram_bot_token, telegram_chat_id)
+        telegram_handler.setLevel(logging.INFO)
+        telegram_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+        logging.getLogger().addHandler(telegram_handler)
+    else:
+        logging.warning("Telegram credentials not found. Telegram logging disabled.")
+except Exception as e:
+    print(f"❌ Error setting up logging: {e}")
+    logging.error(f"Error setting up logging: {e}")
+    raise
 
 # Initialize logger
-trade_logger = TradingLogger()
+try:
+    trade_logger = TradingLogger()
+except Exception as e:
+    print(f"❌ Error initializing TradingLogger: {e}")
+    logging.error(f"Error initializing TradingLogger: {e}")
+    raise
 
 def get_stock_data(symbol, interval, period):
     try:
@@ -147,17 +87,19 @@ def get_stock_data(symbol, interval, period):
             logging.error(f"Invalid interval: {interval}")
             return pd.DataFrame()
         
-        max_retries = 3
+        max_retries = 5
         for attempt in range(max_retries):
             try:
                 data = yf.download(symbol, interval=interval, period=period, auto_adjust=True, progress=False)
                 if not data.empty:
                     break
-                time.sleep(2)
+                print(f"Attempt {attempt + 1} failed: Empty data received.")
+                time.sleep(30)  # Increased delay
             except Exception as e:
+                print(f"Attempt {attempt + 1} failed: {e}")
                 if attempt == max_retries - 1:
-                    raise e
-                time.sleep(5)
+                    raise Exception(f"Failed to retrieve data after {max_retries} attempts: {e}")
+                time.sleep(30)
         
         if data.empty:
             logging.warning(f"Empty data for {symbol} interval {interval}")
@@ -253,7 +195,7 @@ def add_indicators(df):
         df['resistance_distance'] = (df['resistance'] - df['Close']) / df['resistance']
         
         # Stochastic Oscillator
-        stoch = ta.momentum.StochasticIndicator(high=df['High'], low=df['Low'], close=df['Close'])
+        stoch = ta.momentum.StochasticOscillator(high=df['High'], low=df['Low'], close=df['Close'])
         df['stoch_k'] = stoch.stoch()
         df['stoch_d'] = stoch.stoch_signal()
         
@@ -283,6 +225,7 @@ def add_indicators(df):
         
     except Exception as e:
         logging.error(f"Error calculating indicators: {e}")
+        print(f"Error calculating indicators: {e}")
         return df
 
 def prepare_multi_timeframe_data(symbol='BBCA.JK'):
@@ -290,9 +233,9 @@ def prepare_multi_timeframe_data(symbol='BBCA.JK'):
         print(f"🔄 Preparing multi-timeframe data for {symbol}...")
         
         timeframe_configs = [
-            {'base': ('5m', '7d'), 'medium': ('15m', '7d'), 'long': ('1h', '30d')},
-            {'base': ('15m', '7d'), 'medium': ('1h', '30d'), 'long': ('1d', '60d')},
-            {'base': ('1h', '30d'), 'medium': ('1d', '60d'), 'long': ('1wk', '1y')},
+            {'base': ('5m', '14d'), 'medium': ('15m', '14d'), 'long': ('1h', '60d')},
+            {'base': ('15m', '14d'), 'medium': ('1h', '60d'), 'long': ('1d', '90d')},
+            {'base': ('1h', '60d'), 'medium': ('1d', '90d'), 'long': ('1wk', '1y')},
             {'base': ('1d', '1y'), 'medium': ('1wk', '2y'), 'long': ('1mo', '5y')}
         ]
         
@@ -340,7 +283,6 @@ def prepare_multi_timeframe_data(symbol='BBCA.JK'):
                         else:
                             df[f'{col}_long'] = df[col] if col in df.columns else 0
                 
-                # Filter trading hours for Jakarta stocks
                 if symbol.endswith('.JK') and config['base'][0] != '1d':
                     df = df.between_time('09:00', '16:00')
                 elif not symbol.endswith('.JK') and config['base'][0] != '1d':
@@ -360,7 +302,11 @@ def prepare_multi_timeframe_data(symbol='BBCA.JK'):
                 logging.warning(f"Failed to prepare data with config {config}: {e}")
                 continue
         
-        return df_multi if df_multi is not None else pd.DataFrame()
+        if df_multi is None:
+            logging.error("All timeframe configurations failed to produce sufficient data")
+            return pd.DataFrame()
+        
+        return df_multi
         
     except Exception as e:
         logging.error(f"Error in prepare_multi_timeframe_data: {e}")
@@ -374,9 +320,9 @@ def prepare_dataset(df):
     
     try:
         # Define target variables
-        df['target_conservative'] = (df['Close'].shift(-1) > df['Close'] * 1.005).astype(int)
-        df['target_aggressive'] = (df['Close'].shift(-1) > df['Close'] * 1.01).astype(int)
-        df['target'] = df['target_conservative']
+        df['target_conservative'] = ((df['Close'].shift(-1) - df['Close']) / df['Close'] > 0.01).astype(int)
+        df['target_neutral'] = ((df['Close'].shift(-1) - df['Close']) / df['Close']).apply(lambda x: 1 if x > 0.005 else 0).astype(int)
+        df['target'] = df['target_neutral']
         
         df = df[:-1]  # Remove last row due to shift
         
@@ -418,14 +364,12 @@ def prepare_dataset(df):
         if 'bb_position' in X.columns and 'rsi' in X.columns:
             X['bb_rsi_signal'] = X['bb_position'] * X['rsi']
         
-        print(f"Target distribution:\n{y.value_counts()}")
-        logging.info(f"Target distribution:\n{y.value_counts()}")
+        # Apply SMOTE
+        smote = SMOTE(random_state=42)
+        X_resampled, y_resampled = smote.fit_resample(X, y)
         
-        if len(y.unique()) > 1 and len(y[y == 1]) > 5:
-            smote = SMOTE(random_state=42, k_neighbors=min(5, len(y[y == 1]) - 1))
-            X_resampled, y_resampled = smote.fit_resample(X, y)
-        else:
-            X_resampled, y_resampled = X, y
+        print(f"Target distribution after SMOTE:\n{pd.Series(y_resampled).value_counts()}")
+        logging.info(f"Target distribution after SMOTE:\n{pd.Series(y_resampled).value_counts()}")
         
         scaler = StandardScaler()
         X_scaled = scaler.fit_transform(X_resampled)
@@ -438,7 +382,7 @@ def prepare_dataset(df):
         print(f"Error preparing dataset: {e}")
         return None, None, None, None
 
-def train_model(X, y):
+def train_model(X, y, features=None):
     try:
         if X is None or y is None:
             logging.error("No data available for model training")
@@ -455,7 +399,7 @@ def train_model(X, y):
             'min_child_weight': [1, 3, 5]
         }
         
-        pos_weight = len(y[y == 0]) / len(y[y == 1]) if len(y[y == 1]) > 0 else 1
+        pos_weight = max(1, len(y[y == 0]) / len(y[y == 1]) if len(y[y == 1]) > 0 else 1)
         
         model = XGBClassifier(
             random_state=42,
@@ -496,9 +440,19 @@ def train_model(X, y):
             logging.info(f"Model trained successfully - Accuracy: {accuracy:.3f}, Precision: {precision:.3f}, Recall: {recall:.3f}, F1: {f1:.3f}")
             logging.info(f"Best parameters: {grid_search.best_params_}")
             
-            feature_names = [f"feature_{i}" for i in range(X.shape[1])]
+            prob_true, prob_pred = calibration_curve(y_test, y_pred_proba, n_bins=10)
+            plt.figure(figsize=(8, 6))
+            plt.plot(prob_pred, prob_true, marker='o', label='Calibration curve')
+            plt.plot([0, 1], [0, 1], linestyle='--', label='Perfectly calibrated')
+            plt.xlabel('Predicted Probability')
+            plt.ylabel('True Probability')
+            plt.title('Probability Calibration Curve')
+            plt.legend()
+            plt.savefig('calibration_curve.png', dpi=300)
+            plt.close()
+            
             feature_importance = pd.DataFrame({
-                'feature': feature_names,
+                'feature': features if features else [f"feature_{i}" for i in range(X.shape[1])],
                 'importance': best_model.feature_importances_
             }).sort_values('importance', ascending=False)
             
@@ -506,10 +460,13 @@ def train_model(X, y):
             for i, (_, row) in enumerate(feature_importance.head(10).iterrows()):
                 print(f"   {i+1}. {row['feature']}: {row['importance']:.4f}")
             
+            trade_logger.set_model_metrics(y_test, y_pred, y_pred_proba, feature_importance)
+            
             return best_model, y_test
             
         except Exception as e:
             logging.error(f"Error during grid search or prediction: {e}")
+            print(f"Error during grid search or prediction: {e}")
             return None, None
         
     except Exception as e:
@@ -548,15 +505,15 @@ def backtest_trading(df_test, model, scaler, features, initial_balance=100000000
         entry_price = None
         entry_timestamp = None
         
-        max_risk_per_trade = 0.02
+        max_risk_per_trade = 0.01
         take_profit_pct = 0.015
-        stop_loss_pct = 0.008
+        stop_loss_pct = 0.005
         max_positions = 3
         consecutive_losses = 0
         max_consecutive_losses = 3
         
         high_confidence_threshold = 0.75
-        medium_confidence_threshold = 0.65
+        medium_confidence_threshold = 0.55
         
         current_positions = 0
         
@@ -609,7 +566,7 @@ def backtest_trading(df_test, model, scaler, features, initial_balance=100000000
                         balance_history.append(balance)
                         continue
                     
-                    elif (current_time - entry_timestamp).total_seconds() / 60 >= 30:  # 30-minute hold limit
+                    elif (current_time - entry_timestamp).total_seconds() / 60 >= 30:
                         profit = shares * (current_price - entry_price) - (shares * current_price * fee_rate)
                         balance += shares * current_price - (shares * current_price * fee_rate)
                         trade_logger.log_trade('sell', current_price, shares, profit, 'Time Exit', 
@@ -628,8 +585,8 @@ def backtest_trading(df_test, model, scaler, features, initial_balance=100000000
                 if shares == 0 and pred == 1 and prob >= medium_confidence_threshold and \
                    current_positions < max_positions and consecutive_losses < max_consecutive_losses and \
                    balance > 1000000:
-                    rsi_ok = 20 <= current_indicators['rsi'] <= 80
-                    volume_ok = current_indicators['volume_ratio'] >= 1.2
+                    rsi_ok = 20 <= current_indicators['rsi'] <= 85
+                    volume_ok = current_indicators['volume_ratio'] >= 1.0
                     
                     if rsi_ok and volume_ok:
                         risk_amount = balance * max_risk_per_trade
@@ -787,7 +744,7 @@ def live_trading(symbol='BBCA.JK', model=None, scaler=None, features=None, initi
                         trade_logger.log_trade('buy', current_price, shares, None, None,
                                              current_time, balance, indicators)
                 
-                time.sleep(300)  # Wait 5 minutes before next iteration
+                time.sleep(300)
                 
             except KeyboardInterrupt:
                 print("\n🛑 Live trading stopped by user")
@@ -795,6 +752,7 @@ def live_trading(symbol='BBCA.JK', model=None, scaler=None, features=None, initi
                 
             except Exception as e:
                 logging.error(f"Error in live trading loop: {e}")
+                print(f"Error in live trading loop: {e}")
                 time.sleep(60)
                 continue
         
@@ -865,7 +823,7 @@ def analyze_performance(balance_history, initial_balance, trades):
         
         plt.tight_layout()
         plt.savefig('trading_performance.png', dpi=300, bbox_inches='tight')
-        plt.show()
+        plt.close()
         
     except Exception as e:
         logging.error(f"Error in performance analysis: {e}")
@@ -874,6 +832,9 @@ def analyze_performance(balance_history, initial_balance, trades):
 def main():
     try:
         print("🚀 Starting Advanced Trading Bot...")
+        print("Checking dependencies...")
+        import yfinance, pandas, ta, xgboost, sklearn, imblearn, matplotlib, seaborn, requests, numpy
+        print("Dependencies loaded successfully.")
         print("=" * 80)
         
         SYMBOL = 'BBCA.JK'
@@ -884,6 +845,7 @@ def main():
         
         if df.empty:
             print("❌ No data available. Exiting...")
+            logging.error("No data available from prepare_multi_timeframe_data")
             return
         
         print(f"✅ Data prepared: {len(df)} rows")
@@ -893,24 +855,33 @@ def main():
         
         if X is None:
             print("❌ Dataset preparation failed. Exiting...")
+            logging.error("Dataset preparation failed")
             return
         
         print("\n🤖 Step 3: Training machine learning model...")
-        model, y_test = train_model(X, y)
+        model, y_test = train_model(X, y, features)
         
         if model is None:
             print("❌ Model training failed. Exiting...")
+            logging.error("Model training failed")
             return
         
         print("\n📈 Step 4: Running backtest...")
+        split_idx = int(len(df) * 0.8)
+        df_test = df.iloc[split_idx:]
         final_balance, balance_history, trades = backtest_trading(
-            df.tail(len(y_test)), model, scaler, features, INITIAL_BALANCE
+            df_test, model, scaler, features, INITIAL_BALANCE
         )
         
         print("\n📊 Step 5: Analyzing performance...")
         analyze_performance(balance_history, INITIAL_BALANCE, trades)
         
-        print("\n" + trade_logger.get_trade_summary())
+        print("\n📝 Trade Summary:")
+        summary = trade_logger.get_trade_summary()
+        print(summary)
+        logging.info("Trade Summary:\n%s", summary)
+        
+        trade_logger.export_trades_to_csv()
         
         print("\n" + "="*80)
         choice = input("🔴 Do you want to start LIVE trading? (yes/no): ").lower().strip()
@@ -925,11 +896,18 @@ def main():
         
     except KeyboardInterrupt:
         print("\n🛑 Trading bot stopped by user")
+        logging.info("Trading bot stopped by user")
     except Exception as e:
-        logging.error(f"Error in main execution: {e}")
         print(f"❌ Error in main execution: {e}")
+        logging.error(f"Error in main execution: {e}")
     finally:
         print("\n🏁 Trading bot session ended")
+        logging.info("Trading bot session ended")
 
 if __name__ == "__main__":
-    main()
+    try:
+        print("Script started")
+        main()
+    except Exception as e:
+        print(f"❌ Fatal error: {e}")
+        logging.error(f"Fatal error: {e}")

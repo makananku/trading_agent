@@ -27,3 +27,491 @@
 2025-06-15 13:15:53,191 - INFO - Dataset prepared: 310 samples, 48 features
 2025-06-15 13:16:06,701 - ERROR - Error training model: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
 
+2025-06-15 13:26:09,974 - INFO - ✅ Successfully retrieved 458 rows for BBCA.JK 5m
+2025-06-15 13:26:10,797 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:26:11,839 - INFO - ✅ Successfully retrieved 157 rows for BBCA.JK 15m
+2025-06-15 13:26:12,856 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:26:13,627 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:26:14,407 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:26:15,374 - INFO - ✅ Successfully retrieved 157 rows for BBCA.JK 15m
+2025-06-15 13:26:16,150 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:26:17,233 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:26:18,271 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1d
+2025-06-15 13:26:19,101 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:26:19,891 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:26:20,854 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:26:21,696 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:26:22,666 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1d
+2025-06-15 13:26:23,674 - INFO - ✅ Successfully retrieved 53 rows for BBCA.JK 1wk
+2025-06-15 13:26:24,517 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:26:25,289 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:26:26,297 - INFO - ✅ Successfully retrieved 236 rows for BBCA.JK 1d
+2025-06-15 13:26:27,090 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:26:28,094 - INFO - ✅ Successfully retrieved 105 rows for BBCA.JK 1wk
+2025-06-15 13:26:29,113 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1mo
+2025-06-15 13:26:29,928 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:26:30,730 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:26:31,493 - INFO - Multi-timeframe data prepared: 203 rows, base timeframe: 1d
+2025-06-15 13:26:32,323 - INFO - Target distribution:
+target
+0    134
+1     68
+Name: count, dtype: int64
+2025-06-15 13:26:33,278 - INFO - Dataset prepared successfully: 268 samples, 37 features
+2025-06-15 13:27:30,785 - INFO - Model trained successfully - Accuracy: 0.833, Precision: 1.000, Recall: 0.833, F1: 0.909
+2025-06-15 13:27:31,594 - INFO - Best parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.2, 'max_depth': 6, 'min_child_weight': 1, 'n_estimators': 300, 'subsample': 1.0}
+2025-06-15 13:27:32,389 - INFO - Starting backtest with initial balance: Rp 100,000,000
+2025-06-15 13:27:33,159 - INFO - 🟢 BUY  | 2025-03-19 00:00:00 |   3700 shares @ Rp    8076 | Balance: Rp  70,087,094 | RSI:33.7 MACD:-165.845 Prob:0.97
+2025-06-15 13:27:33,935 - INFO - 🔴 SELL | 2025-03-20 00:00:00 |   3700 shares @ Rp    8125 | Profit: Rp 149,415 (  0.5%) | Time Exit | Balance: Rp 100,119,532
+2025-06-15 13:27:34,733 - INFO - 🟢 BUY  | 2025-03-21 00:00:00 |   3800 shares @ Rp    7900 | Balance: Rp  70,069,512 | RSI:31.2 MACD:-205.835 Prob:0.98
+2025-06-15 13:27:35,521 - INFO - 🔴 SELL | 2025-03-24 00:00:00 |   3800 shares @ Rp    7950 | Profit: Rp 159,790 (  0.5%) | Time Exit | Balance: Rp 100,249,302
+2025-06-15 13:27:36,276 - INFO - 🟢 BUY  | 2025-04-08 00:00:00 |   3800 shares @ Rp    7775 | Balance: Rp  70,674,757 | RSI:36.3 MACD:-181.696 Prob:0.99
+2025-06-15 13:27:37,113 - INFO - 🔴 SELL | 2025-04-09 00:00:00 |   3800 shares @ Rp    7925 | Profit: Rp 539,885 (  1.8%) | Take Profit | Balance: Rp 100,759,642
+2025-06-15 13:27:37,961 - INFO - 🟢 BUY  | 2025-05-20 00:00:00 |   3100 shares @ Rp    9475 | Balance: Rp  71,357,769 | RSI:69.1 MACD:244.441 Prob:0.93
+2025-06-15 13:27:38,759 - INFO - 🔴 SELL | 2025-05-21 00:00:00 |   3100 shares @ Rp    9700 | Profit: Rp 667,430 (  2.3%) | Take Profit | Balance: Rp 101,397,699
+2025-06-15 13:27:39,622 - INFO - Backtest completed - Final Balance: Rp 101,397,699, Return: 1.40%
+2025-06-15 13:27:40,497 - ERROR - Error in performance analysis: '>' not supported between instances of 'NoneType' and 'int'
+2025-06-15 13:27:41,279 - INFO - 
+═══════════════════════════════════════════════════════════════
+                         TRADING SUMMARY
+═══════════════════════════════════════════════════════════════
+📊 Total Transactions: 4
+🎯 Win Rate: 100.0% (4/4)
+💰 Total Profit: Rp 1,516,520
+📈 Average Profit/Trade: Rp 379,130
+🚀 Best Trade: Rp 667,430 on 2025-05-21 00:00
+📉 Worst Trade: Rp 149,415 on 2025-03-20 00:00
+
+📋 Sell Reasons Analysis:
+   Time Exit: 2 trades, Avg: Rp 154602
+   Take Profit: 2 trades, Avg: Rp 603658
+═══════════════════════════════════════
+2025-06-15 13:33:43,021 - INFO - ✅ Successfully retrieved 458 rows for BBCA.JK 5m
+2025-06-15 13:33:43,891 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:33:44,954 - INFO - ✅ Successfully retrieved 157 rows for BBCA.JK 15m
+2025-06-15 13:33:45,980 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:33:46,802 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:33:47,599 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:33:48,591 - INFO - ✅ Successfully retrieved 157 rows for BBCA.JK 15m
+2025-06-15 13:33:49,394 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:33:50,355 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:33:51,430 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1d
+2025-06-15 13:33:52,414 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:33:53,269 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:33:54,307 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:33:55,141 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:33:56,111 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1d
+2025-06-15 13:33:57,102 - INFO - ✅ Successfully retrieved 53 rows for BBCA.JK 1wk
+2025-06-15 13:33:57,895 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:33:58,753 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:33:59,770 - INFO - ✅ Successfully retrieved 236 rows for BBCA.JK 1d
+2025-06-15 13:34:00,589 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:34:01,577 - INFO - ✅ Successfully retrieved 105 rows for BBCA.JK 1wk
+2025-06-15 13:34:02,617 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1mo
+2025-06-15 13:34:03,384 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:34:04,200 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:34:05,011 - INFO - Multi-timeframe data prepared: 203 rows, base timeframe: 1d
+2025-06-15 13:34:05,796 - INFO - Target distribution:
+target
+0    134
+1     68
+Name: count, dtype: int64
+2025-06-15 13:34:07,365 - INFO - Dataset prepared successfully: 268 samples, 37 features
+2025-06-15 13:35:32,555 - INFO - Model trained successfully - Accuracy: 0.833, Precision: 1.000, Recall: 0.833, F1: 0.909
+2025-06-15 13:35:33,367 - INFO - Best parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.2, 'max_depth': 6, 'min_child_weight': 1, 'n_estimators': 300, 'subsample': 1.0}
+2025-06-15 13:35:34,133 - ERROR - Error during grid search or prediction: 'TradingLogger' object has no attribute 'set_model_metrics'
+2025-06-15 13:39:26,231 - INFO - ✅ Successfully retrieved 458 rows for BBCA.JK 5m
+2025-06-15 13:39:27,143 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:39:28,114 - INFO - ✅ Successfully retrieved 157 rows for BBCA.JK 15m
+2025-06-15 13:39:29,060 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:39:29,841 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:39:30,663 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:39:31,624 - INFO - ✅ Successfully retrieved 157 rows for BBCA.JK 15m
+2025-06-15 13:39:32,412 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:39:33,359 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:39:34,365 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1d
+2025-06-15 13:39:35,148 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:39:35,945 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:39:37,044 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:39:37,916 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:39:38,844 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1d
+2025-06-15 13:39:39,887 - INFO - ✅ Successfully retrieved 53 rows for BBCA.JK 1wk
+2025-06-15 13:39:40,696 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:39:41,527 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:39:42,653 - INFO - ✅ Successfully retrieved 236 rows for BBCA.JK 1d
+2025-06-15 13:39:43,462 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:39:44,487 - INFO - ✅ Successfully retrieved 105 rows for BBCA.JK 1wk
+2025-06-15 13:39:45,479 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1mo
+2025-06-15 13:39:46,296 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:39:47,157 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:39:48,239 - INFO - Multi-timeframe data prepared: 203 rows, base timeframe: 1d
+2025-06-15 13:39:49,038 - INFO - Target distribution:
+target
+0    134
+1     68
+Name: count, dtype: int64
+2025-06-15 13:39:50,080 - INFO - Dataset prepared successfully: 268 samples, 37 features
+2025-06-15 13:39:50,896 - ERROR - Error in main execution: train_model() takes 2 positional arguments but 3 were given
+2025-06-15 13:42:45,255 - INFO - ✅ Successfully retrieved 458 rows for BBCA.JK 5m
+2025-06-15 13:42:46,221 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:42:47,207 - INFO - ✅ Successfully retrieved 157 rows for BBCA.JK 15m
+2025-06-15 13:42:48,232 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:42:49,195 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:42:49,987 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:42:50,917 - INFO - ✅ Successfully retrieved 157 rows for BBCA.JK 15m
+2025-06-15 13:42:51,704 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:42:52,699 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:42:53,655 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1d
+2025-06-15 13:42:54,467 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:42:55,360 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:42:56,454 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:42:57,334 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:42:58,581 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1d
+2025-06-15 13:42:59,570 - INFO - ✅ Successfully retrieved 53 rows for BBCA.JK 1wk
+2025-06-15 13:43:00,345 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:43:01,152 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:43:03,992 - INFO - ✅ Successfully retrieved 236 rows for BBCA.JK 1d
+2025-06-15 13:43:04,880 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:43:06,121 - INFO - ✅ Successfully retrieved 105 rows for BBCA.JK 1wk
+2025-06-15 13:43:08,117 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1mo
+2025-06-15 13:43:09,279 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:43:10,749 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:43:11,580 - INFO - Multi-timeframe data prepared: 203 rows, base timeframe: 1d
+2025-06-15 13:43:12,433 - INFO - Target distribution:
+target
+0    134
+1     68
+Name: count, dtype: int64
+2025-06-15 13:43:13,433 - INFO - Dataset prepared successfully: 268 samples, 37 features
+2025-06-15 13:44:20,741 - INFO - Model trained successfully - Accuracy: 0.833, Precision: 1.000, Recall: 0.833, F1: 0.909
+2025-06-15 13:44:21,618 - INFO - Best parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.2, 'max_depth': 6, 'min_child_weight': 1, 'n_estimators': 300, 'subsample': 1.0}
+2025-06-15 13:44:22,431 - ERROR - Error during grid search or prediction: 'TradingLogger' object has no attribute 'set_model_metrics'
+2025-06-15 13:47:31,702 - INFO - ✅ Successfully retrieved 458 rows for BBCA.JK 5m
+2025-06-15 13:47:32,522 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:47:33,472 - INFO - ✅ Successfully retrieved 157 rows for BBCA.JK 15m
+2025-06-15 13:47:34,407 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:47:35,197 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:47:36,008 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:47:36,984 - INFO - ✅ Successfully retrieved 157 rows for BBCA.JK 15m
+2025-06-15 13:47:37,755 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:47:38,702 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:47:39,834 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1d
+2025-06-15 13:47:40,656 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:47:41,486 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:47:42,425 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:47:43,224 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:47:44,180 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1d
+2025-06-15 13:47:45,151 - INFO - ✅ Successfully retrieved 53 rows for BBCA.JK 1wk
+2025-06-15 13:47:45,995 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:47:46,821 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:47:47,775 - INFO - ✅ Successfully retrieved 236 rows for BBCA.JK 1d
+2025-06-15 13:47:48,586 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:47:49,631 - INFO - ✅ Successfully retrieved 105 rows for BBCA.JK 1wk
+2025-06-15 13:47:50,720 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1mo
+2025-06-15 13:47:51,539 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:47:52,362 - ERROR - Error calculating indicators: module 'ta.momentum' has no attribute 'StochasticIndicator'
+2025-06-15 13:47:53,164 - INFO - Multi-timeframe data prepared: 203 rows, base timeframe: 1d
+2025-06-15 13:47:53,942 - INFO - Target distribution:
+target
+0    134
+1     68
+Name: count, dtype: int64
+2025-06-15 13:47:55,094 - INFO - Dataset prepared successfully: 268 samples, 37 features
+2025-06-15 13:48:59,119 - INFO - Model trained successfully - Accuracy: 0.833, Precision: 1.000, Recall: 0.833, F1: 0.909
+2025-06-15 13:48:59,962 - INFO - Best parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.2, 'max_depth': 6, 'min_child_weight': 1, 'n_estimators': 300, 'subsample': 1.0}
+2025-06-15 13:49:00,755 - ERROR - Error during grid search or prediction: 'TradingLogger' object has no attribute 'set_model_metrics'
+2025-06-15 13:53:43,970 - INFO - ✅ Successfully retrieved 458 rows for BBCA.JK 5m
+2025-06-15 13:53:44,811 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 13:53:45,771 - INFO - ✅ Successfully retrieved 157 rows for BBCA.JK 15m
+2025-06-15 13:53:46,680 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:53:47,462 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 13:53:48,395 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 13:53:49,422 - INFO - ✅ Successfully retrieved 157 rows for BBCA.JK 15m
+2025-06-15 13:53:50,203 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 13:53:51,170 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:53:52,148 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1d
+2025-06-15 13:53:52,983 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 13:53:53,818 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 13:53:54,747 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 13:53:55,532 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 13:53:56,507 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1d
+2025-06-15 13:53:57,540 - INFO - ✅ Successfully retrieved 53 rows for BBCA.JK 1wk
+2025-06-15 13:53:58,367 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 13:53:59,199 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 13:54:00,195 - INFO - ✅ Successfully retrieved 236 rows for BBCA.JK 1d
+2025-06-15 13:54:01,043 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 13:54:02,012 - INFO - ✅ Successfully retrieved 105 rows for BBCA.JK 1wk
+2025-06-15 13:54:03,481 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1mo
+2025-06-15 13:54:04,326 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 13:54:05,170 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 13:54:05,991 - INFO - Multi-timeframe data prepared: 203 rows, base timeframe: 1d
+2025-06-15 13:54:06,872 - INFO - Target distribution:
+target
+0    134
+1     68
+Name: count, dtype: int64
+2025-06-15 13:54:08,053 - INFO - Dataset prepared successfully: 268 samples, 41 features
+2025-06-15 13:55:12,152 - INFO - Model trained successfully - Accuracy: 0.815, Precision: 1.000, Recall: 0.815, F1: 0.898
+2025-06-15 13:55:12,963 - INFO - Best parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.2, 'max_depth': 8, 'min_child_weight': 1, 'n_estimators': 300, 'subsample': 1.0}
+2025-06-15 13:55:13,766 - INFO - Starting backtest with initial balance: Rp 100,000,000
+2025-06-15 13:55:14,577 - INFO - 🟢 BUY  | 2025-03-19 00:00:00 |   3700 shares @ Rp    8076 | Balance: Rp  70,087,094 | RSI:33.7 MACD:-165.845 Prob:0.96
+2025-06-15 13:55:15,344 - INFO - 🔴 SELL | 2025-03-20 00:00:00 |   3700 shares @ Rp    8125 | Profit: Rp 149,415 (  0.5%) | Time Exit | Balance: Rp 100,119,532
+2025-06-15 13:55:16,169 - INFO - 🟢 BUY  | 2025-03-21 00:00:00 |   3800 shares @ Rp    7900 | Balance: Rp  70,069,512 | RSI:31.2 MACD:-205.835 Prob:0.98
+2025-06-15 13:55:16,961 - INFO - 🔴 SELL | 2025-03-24 00:00:00 |   3800 shares @ Rp    7950 | Profit: Rp 159,790 (  0.5%) | Time Exit | Balance: Rp 100,249,302
+2025-06-15 13:55:17,732 - INFO - 🟢 BUY  | 2025-04-08 00:00:00 |   3800 shares @ Rp    7775 | Balance: Rp  70,674,757 | RSI:36.3 MACD:-181.696 Prob:1.00
+2025-06-15 13:55:18,530 - INFO - 🔴 SELL | 2025-04-09 00:00:00 |   3800 shares @ Rp    7925 | Profit: Rp 539,885 (  1.8%) | Take Profit | Balance: Rp 100,759,642
+2025-06-15 13:55:19,305 - INFO - 🟢 BUY  | 2025-05-20 00:00:00 |   3100 shares @ Rp    9475 | Balance: Rp  71,357,769 | RSI:69.1 MACD:244.441 Prob:0.93
+2025-06-15 13:55:20,259 - INFO - 🔴 SELL | 2025-05-21 00:00:00 |   3100 shares @ Rp    9700 | Profit: Rp 667,430 (  2.3%) | Take Profit | Balance: Rp 101,397,699
+2025-06-15 13:55:21,026 - INFO - Backtest completed - Final Balance: Rp 101,397,699, Return: 1.40%
+2025-06-15 13:55:21,821 - ERROR - Error in performance analysis: '>' not supported between instances of 'NoneType' and 'int'
+2025-06-15 13:55:23,699 - INFO - 
+═══════════════════════════════════════════════════════════════
+                         TRADING SUMMARY
+═══════════════════════════════════════════════════════════════
+📅 Period: 2025-03-19 to 2025-05-21
+💰 Financial Metrics:
+   Initial Balance: Rp 70,087,094
+   Final Balance: Rp 101,397,699
+   Total Return: 44.67%
+   Total Profit: Rp 1,516,520
+   Average Profit/Trade: Rp 379,130
+   Win Rate: 100.0% (4/4)
+   Max Drawdown: 30.01%
+
+📊 Risk Metrics:
+   Volatility: 102.13%
+   Sharpe Ratio: 0.80
+   Risk-Reward Ratio: inf
+
+📈 Trade Analysis:
+   Total Trades: 4
+   Buy Trades: 4
+   Sell Trades: 4
+   Trades/Day: 0.06
+   Average Trade Duration: 2160.00 minutes
+   Market Exposure: 9.52% of time
+   Sell Reasons:
+     Take Profit: 2 trades, Avg Profit: Rp 603,658, Total: Rp 1,207,315
+     Time Exit: 2 trades, Avg Profit: Rp 154,602, Total: Rp 309,205
+
+Model Performance Metrics:
+========================================
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         0
+           1       1.00      0.81      0.90        54
+
+    accuracy                           0.81        54
+   macro avg       0.50      0.41      0.45        54
+weighted avg       1.00      0.81      0.90        54
+
+Confusion Matrix:
+[[ 0  0]
+ [10 44]]
+True Positives: 44
+False Positives: 0
+True Negatives: 0
+False Negatives: 10
+
+Probability Distribution (10 bins):
+[ 6  0  1  1  2  2  4  5  3 30]
+
+Top 5 Feature Importance:
+========================================
+1. rsi_medium: 0.0665
+2. ema26: 0.0535
+3. ma20: 0.0502
+4. macd_long: 0.0480
+5. ma10: 0.0454
+
+📊 Visualizations Available:
+   - Portfolio Value: trading_performance.png (Subplot 1)
+   - Return Distribution: trading_performance.png (Subplot 2)
+   - Cumulative Returns: trading_performance.png (Subplot 3)
+   - Drawdown: trading_performance.png (Subplot 4)
+   - Confusion Matrix: confusion_matrix.png
+
+📝 Notes:
+   - Check 'detailed_trading_log.txt' for full trade logs.
+   - Model performance metrics assume test set predictions were provided.
+   - Probability calibration may indicate over/under-confidence if bins are uneven.
+═══════════════════════════════════════
+
+2025-06-15 14:03:53,593 - INFO - TradingLogger initialized
+2025-06-15 14:03:55,470 - INFO - ✅ Successfully retrieved 458 rows for BBCA.JK 5m
+2025-06-15 14:03:56,285 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:03:57,192 - INFO - ✅ Successfully retrieved 157 rows for BBCA.JK 15m
+2025-06-15 14:03:58,188 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 14:03:59,001 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:03:59,885 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:04:01,147 - INFO - ✅ Successfully retrieved 157 rows for BBCA.JK 15m
+2025-06-15 14:04:01,972 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:04:02,920 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 14:04:03,885 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1d
+2025-06-15 14:04:04,676 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:04:05,491 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:04:06,393 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 14:04:07,174 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:04:08,204 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1d
+2025-06-15 14:04:09,148 - INFO - ✅ Successfully retrieved 53 rows for BBCA.JK 1wk
+2025-06-15 14:04:09,918 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:04:10,743 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:04:11,678 - INFO - ✅ Successfully retrieved 236 rows for BBCA.JK 1d
+2025-06-15 14:04:12,504 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:04:13,513 - INFO - ✅ Successfully retrieved 105 rows for BBCA.JK 1wk
+2025-06-15 14:04:14,492 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1mo
+2025-06-15 14:04:15,301 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:04:16,123 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:04:16,913 - INFO - Multi-timeframe data prepared: 203 rows, base timeframe: 1d
+2025-06-15 14:04:17,694 - INFO - Target distribution:
+target
+0    156
+1     46
+Name: count, dtype: int64
+2025-06-15 14:04:18,480 - INFO - Dataset prepared successfully: 202 samples, 41 features
+2025-06-15 14:04:27,691 - ERROR - Error during grid search or prediction: Invalid parameter 'colsample_bytree' for estimator CalibratedClassifierCV(cv=3,
+                       estimator=XGBClassifier(base_score=None, booster=None,
+                                               callbacks=None,
+                                               colsample_bylevel=None,
+                                               colsample_bynode=None,
+                                               colsample_bytree=None,
+                                               device=None,
+                                               early_stopping_rounds=None,
+                                               enable_categorical=False,
+                                               eval_metric='logloss',
+                                               feature_types=None,
+                                               feature_weights=None, gamma=None,
+                                               grow_policy=None,
+                                               importance_type=None,
+                                               interaction_constraints=None,
+                                               learning_rate=None, max_bin=None,
+                                               max_cat_threshold=None,
+                                               max_cat_to_onehot=None,
+                                               max_delta_step=None,
+                                               max_depth=None, max_leaves=None,
+                                               min_child_weight=None,
+                                               missing=nan,
+                                               monotone_constraints=None,
+                                               multi_strategy=None,
+                                               n_estimators=None, n_jobs=-1,
+                                               num_parallel_tree=None, ...)). Valid parameters are: ['cv', 'ensemble', 'estimator', 'method', 'n_jobs'].
+2025-06-15 14:08:29,404 - INFO - TradingLogger initialized
+2025-06-15 14:08:30,905 - INFO - ✅ Successfully retrieved 458 rows for BBCA.JK 5m
+2025-06-15 14:08:31,773 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:08:32,707 - INFO - ✅ Successfully retrieved 157 rows for BBCA.JK 15m
+2025-06-15 14:08:33,721 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 14:08:34,587 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:08:35,538 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:08:36,618 - INFO - ✅ Successfully retrieved 157 rows for BBCA.JK 15m
+2025-06-15 14:08:37,430 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:08:38,411 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 14:08:39,402 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1d
+2025-06-15 14:08:40,226 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:08:41,033 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:08:42,047 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 14:08:42,848 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:08:43,918 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1d
+2025-06-15 14:08:44,911 - INFO - ✅ Successfully retrieved 53 rows for BBCA.JK 1wk
+2025-06-15 14:08:45,744 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:08:46,606 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:08:47,581 - INFO - ✅ Successfully retrieved 236 rows for BBCA.JK 1d
+2025-06-15 14:08:48,476 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:08:49,499 - INFO - ✅ Successfully retrieved 105 rows for BBCA.JK 1wk
+2025-06-15 14:08:50,510 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1mo
+2025-06-15 14:08:51,391 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:08:52,235 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:08:53,020 - INFO - Multi-timeframe data prepared: 203 rows, base timeframe: 1d
+2025-06-15 14:08:53,846 - INFO - Target distribution:
+target
+0    156
+1     46
+Name: count, dtype: int64
+2025-06-15 14:08:54,651 - INFO - Dataset prepared successfully: 202 samples, 41 features
+2025-06-15 14:10:54,881 - INFO - Model trained successfully - Accuracy: 0.659, Precision: 0.000, Recall: 0.000, F1: 0.000
+2025-06-15 14:10:55,751 - INFO - Best parameters: {'estimator__colsample_bytree': 0.8, 'estimator__learning_rate': 0.1, 'estimator__max_depth': 6, 'estimator__min_child_weight': 1, 'estimator__n_estimators': 300, 'estimator__subsample': 0.8}
+2025-06-15 14:10:57,821 - ERROR - Error during grid search or prediction: 'CalibratedClassifierCV' object has no attribute 'base_estimator_'
+2025-06-15 14:12:59,500 - INFO - TradingLogger initialized
+2025-06-15 14:13:01,482 - INFO - ✅ Successfully retrieved 458 rows for BBCA.JK 5m
+2025-06-15 14:13:02,305 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:13:03,260 - INFO - ✅ Successfully retrieved 157 rows for BBCA.JK 15m
+2025-06-15 14:13:04,280 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 14:13:05,125 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:13:05,945 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:13:06,974 - INFO - ✅ Successfully retrieved 157 rows for BBCA.JK 15m
+2025-06-15 14:13:07,868 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:13:08,950 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 14:13:10,005 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1d
+2025-06-15 14:13:10,850 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:13:11,647 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:13:12,575 - INFO - ✅ Successfully retrieved 204 rows for BBCA.JK 1h
+2025-06-15 14:13:13,370 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:13:14,389 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1d
+2025-06-15 14:13:15,309 - INFO - ✅ Successfully retrieved 53 rows for BBCA.JK 1wk
+2025-06-15 14:13:16,105 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:13:16,911 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:13:17,882 - INFO - ✅ Successfully retrieved 236 rows for BBCA.JK 1d
+2025-06-15 14:13:18,712 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:13:19,726 - INFO - ✅ Successfully retrieved 105 rows for BBCA.JK 1wk
+2025-06-15 14:13:20,779 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1mo
+2025-06-15 14:13:21,554 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:13:22,445 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:13:23,316 - INFO - Multi-timeframe data prepared: 203 rows, base timeframe: 1d
+2025-06-15 14:13:24,218 - INFO - Target distribution:
+target
+0    156
+1     46
+Name: count, dtype: int64
+2025-06-15 14:13:25,013 - INFO - Dataset prepared successfully: 202 samples, 41 features
+2025-06-15 14:15:26,061 - INFO - Model trained successfully - Accuracy: 0.659, Precision: 0.000, Recall: 0.000, F1: 0.000
+2025-06-15 14:15:27,013 - INFO - Best parameters: {'estimator__colsample_bytree': 0.8, 'estimator__learning_rate': 0.2, 'estimator__max_depth': 6, 'estimator__min_child_weight': 1, 'estimator__n_estimators': 200, 'estimator__subsample': 0.8}
+2025-06-15 14:15:29,374 - INFO - Model metrics set successfully
+2025-06-15 14:15:30,250 - INFO - Starting backtest with initial balance: Rp 100,000,000
+2025-06-15 14:15:31,082 - INFO - Backtest completed - Final Balance: Rp 100,000,000, Return: 0.00%
+2025-06-15 14:19:35,462 - INFO - No trades to export
+2025-06-15 14:23:22,752 - INFO - TradingLogger initialized
+2025-06-15 14:23:24,450 - INFO - ✅ Successfully retrieved 915 rows for BBCA.JK 5m
+2025-06-15 14:23:25,298 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:23:26,247 - INFO - ✅ Successfully retrieved 314 rows for BBCA.JK 15m
+2025-06-15 14:23:27,184 - INFO - ✅ Successfully retrieved 411 rows for BBCA.JK 1h
+2025-06-15 14:23:27,984 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:23:28,902 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:23:29,901 - INFO - ✅ Successfully retrieved 314 rows for BBCA.JK 15m
+2025-06-15 14:23:30,753 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:23:31,681 - INFO - ✅ Successfully retrieved 411 rows for BBCA.JK 1h
+2025-06-15 14:23:32,657 - INFO - ✅ Successfully retrieved 90 rows for BBCA.JK 1d
+2025-06-15 14:23:33,450 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:23:34,296 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:23:35,268 - INFO - ✅ Successfully retrieved 411 rows for BBCA.JK 1h
+2025-06-15 14:23:36,070 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:23:37,082 - INFO - ✅ Successfully retrieved 90 rows for BBCA.JK 1d
+2025-06-15 14:23:40,475 - INFO - ✅ Successfully retrieved 53 rows for BBCA.JK 1wk
+2025-06-15 14:23:41,703 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:23:42,543 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:23:43,521 - INFO - ✅ Successfully retrieved 236 rows for BBCA.JK 1d
+2025-06-15 14:23:44,325 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:23:45,313 - INFO - ✅ Successfully retrieved 105 rows for BBCA.JK 1wk
+2025-06-15 14:23:46,243 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1mo
+2025-06-15 14:23:47,026 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:23:47,841 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:23:48,638 - INFO - Multi-timeframe data prepared: 203 rows, base timeframe: 1d
+2025-06-15 14:23:49,698 - INFO - Target distribution after SMOTE:
+target
+0    134
+1    134
+Name: count, dtype: int64
+2025-06-15 14:23:50,499 - INFO - Dataset prepared successfully: 268 samples, 41 features
+2025-06-15 14:24:45,977 - INFO - Model trained successfully - Accuracy: 0.815, Precision: 1.000, Recall: 0.815, F1: 0.898
+2025-06-15 14:24:46,773 - INFO - Best parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.2, 'max_depth': 8, 'min_child_weight': 1, 'n_estimators': 300, 'subsample': 1.0}
+2025-06-15 14:24:48,460 - INFO - Model metrics set successfully
+2025-06-15 14:24:49,341 - INFO - Starting backtest with initial balance: Rp 100,000,000
+2025-06-15 14:24:50,270 - INFO - Trade: BUY | Price: Rp 7,775.00 | Shares: 3,800 | Balance: Rp 70,425,455.00 | Indicators: {'rsi': 36.27700877906757, 'macd': -181.69569658574983, 'bb_position': 0.017720344326412105, 'volume_ratio': 2.760326617025793, 'probability': 0.99540097}
+2025-06-15 14:24:51,200 - INFO - Trade: SELL | Price: Rp 7,925.00 | Shares: 3,800 | Profit: Rp 539,885.00 | Reason: Take Profit | Balance: Rp 100,510,340.00 | Indicators: {'rsi': 40.08674240895634, 'macd': -192.45750814913117, 'bb_position': 0.1724839394606206, 'volume_ratio': 0.7185840530331961, 'probability': 0.9946749}
+2025-06-15 14:24:52,015 - INFO - Trade: BUY | Price: Rp 8,825.00 | Shares: 3,400 | Balance: Rp 70,475,335.00 | Indicators: {'rsi': 57.75037373728334, 'macd': 75.31383488168649, 'bb_position': 0.8647900992844118, 'volume_ratio': 1.1809075627695802, 'probability': 0.9864015}
+2025-06-15 14:24:52,765 - INFO - Trade: SELL | Price: Rp 8,975.00 | Shares: 3,400 | Profit: Rp 479,485.00 | Reason: Take Profit | Balance: Rp 100,959,820.00 | Indicators: {'rsi': 60.62366120797663, 'macd': 101.15793419994588, 'bb_position': 0.9419297102705011, 'volume_ratio': 0.7238465317253594, 'probability': 0.050460394}
+2025-06-15 14:24:53,541 - INFO - Trade: BUY | Price: Rp 9,475.00 | Shares: 3,100 | Balance: Rp 71,557,947.50 | Indicators: {'rsi': 69.07644745971741, 'macd': 244.4414547374854, 'bb_position': 0.9197941341473764, 'volume_ratio': 1.774293540531691, 'probability': 0.9332315}
+2025-06-15 14:24:54,339 - INFO - Trade: SELL | Price: Rp 9,700.00 | Shares: 3,100 | Profit: Rp 667,430.00 | Reason: Take Profit | Balance: Rp 101,597,877.50 | Indicators: {'rsi': 73.08554584693283, 'macd': 269.93465818360346, 'bb_position': 1.0026613622818796, 'volume_ratio': 1.7898716240319712, 'probability': 0.00995286}
+2025-06-15 14:24:55,144 - INFO - Backtest completed - Final Balance: Rp 101,597,878, Return: 1.60%
+2025-06-15 14:24:55,902 - ERROR - Error in performance analysis: '>' not supported between instances of 'NoneType' and 'int'
+2025-06-15 14:24:57,213 - INFO - Trades exported to trades.csv
+2025-06-15 14:33:11,663 - INFO - TradingLogger initialized
+2025-06-15 14:34:12,826 - INFO - TradingLogger initialized
