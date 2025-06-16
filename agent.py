@@ -30,7 +30,6 @@ class TelegramHandler(logging.Handler):
     def emit(self, record):
         try:
             log_entry = self.format(record)
-            # Ensure message is within Telegram's 4096-char limit
             max_length = 4096
             if len(log_entry) > max_length:
                 log_entry = log_entry[:max_length-3] + "..."
@@ -57,7 +56,6 @@ try:
         ]
     )
 
-    # Add Telegram handler if credentials are available
     if telegram_bot_token and telegram_chat_id:
         telegram_handler = TelegramHandler(telegram_bot_token, telegram_chat_id)
         telegram_handler.setLevel(logging.INFO)
@@ -94,7 +92,7 @@ def get_stock_data(symbol, interval, period):
                 if not data.empty:
                     break
                 print(f"Attempt {attempt + 1} failed: Empty data received.")
-                time.sleep(30)  # Increased delay
+                time.sleep(30)
             except Exception as e:
                 print(f"Attempt {attempt + 1} failed: {e}")
                 if attempt == max_retries - 1:
@@ -139,23 +137,19 @@ def add_indicators(df):
     try:
         df = df.copy()
         
-        # RSI Indicators
         df['rsi'] = ta.momentum.RSIIndicator(close=df['Close'], window=14).rsi()
         df['rsi_fast'] = ta.momentum.RSIIndicator(close=df['Close'], window=7).rsi()
         df['rsi_momentum_ratio'] = df['rsi'] / df['rsi_fast'].replace(0, np.nan)
         df['rsi_slow'] = ta.momentum.RSIIndicator(close=df['Close'], window=21).rsi()
         
-        # Moving Averages
         df['ma5'] = df['Close'].rolling(window=5).mean()
         df['ma10'] = df['Close'].rolling(window=10).mean()
         df['ma20'] = df['Close'].rolling(window=20).mean()
         df['ma50'] = df['Close'].rolling(window=50, min_periods=1).mean()
         
-        # Exponential Moving Averages
         df['ema12'] = df['Close'].ewm(span=12, adjust=False).mean()
         df['ema26'] = df['Close'].ewm(span=26, adjust=False).mean()
         
-        # Bollinger Bands
         bb = ta.volatility.BollingerBands(close=df['Close'], window=20)
         df['bb_upper'] = bb.bollinger_hband()
         df['bb_lower'] = bb.bollinger_lband()
@@ -163,59 +157,47 @@ def add_indicators(df):
         df['bb_width'] = (df['bb_upper'] - df['bb_lower']) / df['bb_middle']
         df['bb_position'] = (df['Close'] - df['bb_lower']) / (df['bb_upper'] - df['bb_lower'])
         
-        # MACD
         macd = ta.trend.MACD(close=df['Close'])
         df['macd'] = macd.macd()
         df['macd_signal'] = macd.macd_signal()
         df['macd_diff'] = macd.macd_diff()
         
-        # Volume Indicators
         df['volume_sma'] = df['Volume'].rolling(window=20).mean()
         df['volume_ratio'] = df['Volume'] / df['volume_sma'].replace(0, np.nan)
         
-        # VWAP
         typical_price = (df['High'] + df['Low'] + df['Close']) / 3
         df['vwap'] = (typical_price * df['Volume']).cumsum() / df['Volume'].cumsum()
         df['vwap_distance'] = (df['Close'] - df['vwap']) / df['vwap']
         
-        # ATR and Volatility
         df['atr'] = ta.volatility.AverageTrueRange(high=df['High'], low=df['Low'], close=df['Close'], window=14).average_true_range()
         df['atr_percent'] = df['atr'] / df['Close']
         df['volatility'] = df['Close'].rolling(window=20).std()
         
-        # Price Changes and Momentum
         df['price_change'] = df['Close'].pct_change()
         df['price_change_5'] = df['Close'].pct_change(periods=5)
         df['price_momentum'] = (df['Close'] / df['Close'].shift(10) - 1).fillna(0)
         
-        # Support and Resistance
         df['support'] = df['Low'].rolling(window=20).min()
         df['resistance'] = df['High'].rolling(window=20).max()
         df['support_distance'] = (df['Close'] - df['support']) / df['support']
         df['resistance_distance'] = (df['resistance'] - df['Close']) / df['resistance']
         
-        # Stochastic Oscillator
         stoch = ta.momentum.StochasticOscillator(high=df['High'], low=df['Low'], close=df['Close'])
         df['stoch_k'] = stoch.stoch()
         df['stoch_d'] = stoch.stoch_signal()
         
-        # Williams %R
         df['williams_r'] = ta.momentum.WilliamsRIndicator(high=df['High'], low=df['Low'], close=df['Close']).williams_r()
         
-        # CCI
         df['cci'] = ta.trend.CCIIndicator(high=df['High'], low=df['Low'], close=df['Close']).cci()
         
-        # MFI
         df['mfi'] = ta.volume.MoneyFlowIndexIndicator(high=df['High'], low=df['Low'], close=df['Close'], volume=df['Volume']).money_flow_index()
         
-        # Cross Signals
         df['golden_cross'] = (df['ma5'] > df['ma20']) & (df['ma5'].shift(1) <= df['ma20'].shift(1))
         df['death_cross'] = (df['ma5'] < df['ma20']) & (df['ma5'].shift(1) >= df['ma20'].shift(1))
         df['rsi_oversold'] = df['rsi'] <= 30
         df['rsi_overbought'] = df['rsi'] >= 70
         df['volume_spike'] = df['volume_ratio'] >= 2
         
-        # Fill NaN values
         numeric_columns = df.select_dtypes(include=[np.number]).columns
         for col in numeric_columns:
             df[col] = df[col].fillna(method='ffill').fillna(method='bfill').fillna(0)
@@ -228,12 +210,12 @@ def add_indicators(df):
         print(f"Error calculating indicators: {e}")
         return df
 
-def prepare_multi_timeframe_data(symbol='BBCA.JK'):
+def prepare_multi_timeframe_data(symbol='BBRI.JK'):
     try:
         print(f"🔄 Preparing multi-timeframe data for {symbol}...")
         
         timeframe_configs = [
-            {'base': ('5m', '14d'), 'medium': ('15m', '14d'), 'long': ('1h', '60d')},
+            {'base': ('5m', '7d'), 'medium': ('15m', '14d'), 'long': ('1h', '60d')},
             {'base': ('15m', '14d'), 'medium': ('1h', '60d'), 'long': ('1d', '90d')},
             {'base': ('1h', '60d'), 'medium': ('1d', '90d'), 'long': ('1wk', '1y')},
             {'base': ('1d', '1y'), 'medium': ('1wk', '2y'), 'long': ('1mo', '5y')}
@@ -319,12 +301,11 @@ def prepare_dataset(df):
         return None, None, None, None
     
     try:
-        # Define target variables
         df['target_conservative'] = ((df['Close'].shift(-1) - df['Close']) / df['Close'] > 0.01).astype(int)
         df['target_neutral'] = ((df['Close'].shift(-1) - df['Close']) / df['Close']).apply(lambda x: 1 if x > 0.005 else 0).astype(int)
         df['target'] = df['target_neutral']
         
-        df = df[:-1]  # Remove last row due to shift
+        df = df[:-1]
         
         base_features = [
             'rsi', 'rsi_fast', 'rsi_slow', 'ma5', 'ma10', 'ma20', 'ma50',
@@ -356,7 +337,6 @@ def prepare_dataset(df):
         X = X.fillna(method='ffill').fillna(method='bfill').fillna(0)
         X = X.replace([np.inf, -np.inf], 0)
         
-        # Add interaction features
         if 'rsi' in X.columns and 'macd' in X.columns:
             X['rsi_macd_interaction'] = X['rsi'] * X['macd']
         if 'volume_ratio' in X.columns and 'price_momentum' in X.columns:
@@ -364,7 +344,6 @@ def prepare_dataset(df):
         if 'bb_position' in X.columns and 'rsi' in X.columns:
             X['bb_rsi_signal'] = X['bb_position'] * X['rsi']
         
-        # Apply SMOTE
         smote = SMOTE(random_state=42)
         X_resampled, y_resampled = smote.fit_resample(X, y)
         
@@ -391,12 +370,12 @@ def train_model(X, y, features=None):
         tscv = TimeSeriesSplit(n_splits=3)
         
         param_grid = {
-            'n_estimators': [100, 200, 300],
-            'max_depth': [4, 6, 8],
-            'learning_rate': [0.05, 0.1, 0.2],
+            'n_estimators': [30, 50, 100],
+            'max_depth': [2, 3, 4],
+            'learning_rate': [0.2, 0.3, 0.4],
             'subsample': [0.8, 0.9, 1.0],
             'colsample_bytree': [0.8, 0.9, 1.0],
-            'min_child_weight': [1, 3, 5]
+            'min_child_weight': [1, 2, 3]
         }
         
         pos_weight = max(1, len(y[y == 0]) / len(y[y == 1]) if len(y[y == 1]) > 0 else 1)
@@ -484,7 +463,6 @@ def backtest_trading(df_test, model, scaler, features, initial_balance=100000000
         
         df_test = df_test.copy()
         
-        # Add interaction features
         if 'rsi' in df_test.columns and 'macd' in df_test.columns:
             df_test['rsi_macd_interaction'] = df_test['rsi'] * df_test['macd']
         if 'volume_ratio' in df_test.columns and 'price_momentum' in df_test.columns:
@@ -504,18 +482,16 @@ def backtest_trading(df_test, model, scaler, features, initial_balance=100000000
         balance_history = [initial_balance]
         entry_price = None
         entry_timestamp = None
+        buy_fee = 0  # Track buy fee for each trade
         
         max_risk_per_trade = 0.01
-        take_profit_pct = 0.015
-        stop_loss_pct = 0.005
-        max_positions = 3
+        take_profit_pct = 0.001
+        stop_loss_pct = 0.0005
         consecutive_losses = 0
         max_consecutive_losses = 3
         
-        high_confidence_threshold = 0.75
-        medium_confidence_threshold = 0.55
-        
-        current_positions = 0
+        high_confidence_threshold = 0.60
+        medium_confidence_threshold = 0.45
         
         logging.info(f"Starting backtest with initial balance: Rp {initial_balance:,.0f}")
         print(f"💰 Starting backtest with balance: Rp {balance:,.0f}")
@@ -541,40 +517,43 @@ def backtest_trading(df_test, model, scaler, features, initial_balance=100000000
                     current_return = (current_price - entry_price) / entry_price
                     
                     if current_return >= take_profit_pct:
-                        profit = shares * (current_price - entry_price) - (shares * current_price * fee_rate)
-                        balance += shares * current_price - (shares * current_price * fee_rate)
+                        sell_fee = shares * current_price * fee_rate
+                        profit = shares * (current_price - entry_price) - (buy_fee + sell_fee)
+                        balance += shares * current_price - sell_fee
                         trade_logger.log_trade('sell', current_price, shares, profit, 'Take Profit', 
-                                             current_time, balance, current_indicators)
+                                             current_time, balance, current_indicators, buy_fee, sell_fee)
                         shares = 0
                         entry_price = None
                         entry_timestamp = None
-                        current_positions -= 1
+                        buy_fee = 0
                         consecutive_losses = 0
                         balance_history.append(balance)
                         continue
                     
                     elif current_return <= -stop_loss_pct:
-                        profit = shares * (current_price - entry_price) - (shares * current_price * fee_rate)
-                        balance += shares * current_price - (shares * current_price * fee_rate)
+                        sell_fee = shares * current_price * fee_rate
+                        profit = shares * (current_price - entry_price) - (buy_fee + sell_fee)
+                        balance += shares * current_price - sell_fee
                         trade_logger.log_trade('sell', current_price, shares, profit, 'Stop Loss', 
-                                             current_time, balance, current_indicators)
+                                             current_time, balance, current_indicators, buy_fee, sell_fee)
                         shares = 0
                         entry_price = None
                         entry_timestamp = None
-                        current_positions -= 1
+                        buy_fee = 0
                         consecutive_losses += 1
                         balance_history.append(balance)
                         continue
                     
-                    elif (current_time - entry_timestamp).total_seconds() / 60 >= 30:
-                        profit = shares * (current_price - entry_price) - (shares * current_price * fee_rate)
-                        balance += shares * current_price - (shares * current_price * fee_rate)
+                    elif (current_time - entry_timestamp).total_seconds() / 60 >= 5:
+                        sell_fee = shares * current_price * fee_rate
+                        profit = shares * (current_price - entry_price) - (buy_fee + sell_fee)
+                        balance += shares * current_price - sell_fee
                         trade_logger.log_trade('sell', current_price, shares, profit, 'Time Exit', 
-                                             current_time, balance, current_indicators)
+                                             current_time, balance, current_indicators, buy_fee, sell_fee)
                         shares = 0
                         entry_price = None
                         entry_timestamp = None
-                        current_positions -= 1
+                        buy_fee = 0
                         if profit < 0:
                             consecutive_losses += 1
                         else:
@@ -583,10 +562,9 @@ def backtest_trading(df_test, model, scaler, features, initial_balance=100000000
                         continue
                 
                 if shares == 0 and pred == 1 and prob >= medium_confidence_threshold and \
-                   current_positions < max_positions and consecutive_losses < max_consecutive_losses and \
-                   balance > 1000000:
-                    rsi_ok = 20 <= current_indicators['rsi'] <= 85
-                    volume_ok = current_indicators['volume_ratio'] >= 1.0
+                   consecutive_losses < max_consecutive_losses and balance > 1000000:
+                    rsi_ok = 15 <= current_indicators['rsi'] <= 95
+                    volume_ok = current_indicators['volume_ratio'] >= 0.5
                     
                     if rsi_ok and volume_ok:
                         risk_amount = balance * max_risk_per_trade
@@ -597,17 +575,17 @@ def backtest_trading(df_test, model, scaler, features, initial_balance=100000000
                         target_shares = min(position_size, max_shares_by_value)
                         target_shares = max(100, int(target_shares / 100) * 100)
                         
-                        total_cost = target_shares * current_price * (1 + fee_rate)
+                        buy_fee = target_shares * current_price * fee_rate
+                        total_cost = target_shares * current_price + buy_fee
                         
                         if total_cost <= balance:
                             balance -= total_cost
                             shares = target_shares
                             entry_price = current_price
                             entry_timestamp = current_time
-                            current_positions += 1
                             
                             trade_logger.log_trade('buy', current_price, shares, None, None, 
-                                                 current_time, balance, current_indicators)
+                                                 current_time, balance, current_indicators, buy_fee, 0)
                             balance_history.append(balance)
                 
                 balance_history.append(balance)
@@ -618,10 +596,11 @@ def backtest_trading(df_test, model, scaler, features, initial_balance=100000000
         
         if shares > 0:
             final_value = shares * df_test['Close'].iloc[-1]
-            profit = shares * (df_test['Close'].iloc[-1] - entry_price) - (final_value * fee_rate)
-            balance += final_value - (final_value * fee_rate)
+            sell_fee = final_value * fee_rate
+            profit = final_value - (shares * entry_price) - (buy_fee + sell_fee)
+            balance += final_value - sell_fee
             trade_logger.log_trade('sell', df_test['Close'].iloc[-1], shares, profit, 'Final Close', 
-                                 df_test.index[-1], balance, current_indicators)
+                                 df_test.index[-1], balance, current_indicators, buy_fee, sell_fee)
             balance_history.append(balance)
         
         final_balance = balance
@@ -641,7 +620,7 @@ def backtest_trading(df_test, model, scaler, features, initial_balance=100000000
         print(f"Error in backtest: {e}")
         return initial_balance, [initial_balance], []
 
-def live_trading(symbol='BBCA.JK', model=None, scaler=None, features=None, initial_balance=100000000):
+def live_trading(symbol='BBRI.JK', model=None, scaler=None, features=None, initial_balance=100000000):
     try:
         if model is None or scaler is None or features is None:
             logging.error("No model, scaler, or features provided for live trading")
@@ -655,13 +634,14 @@ def live_trading(symbol='BBCA.JK', model=None, scaler=None, features=None, initi
         shares = 0
         entry_price = None
         entry_time = None
+        buy_fee = 0
         consecutive_losses = 0
         
         max_risk = 0.015
-        take_profit = 0.012
-        stop_loss = 0.006
+        take_profit = 0.001
+        stop_loss = 0.0005
         max_consecutive_losses = 3
-        confidence_threshold = 0.7
+        confidence_threshold = 0.55
         
         logging.info(f"Live Trading Started - Symbol: {symbol}, Initial Balance: Rp {initial_balance:,.0f}")
         
@@ -706,35 +686,40 @@ def live_trading(symbol='BBCA.JK', model=None, scaler=None, features=None, initi
                     current_return = (current_price - entry_price) / entry_price
                     
                     if current_return >= take_profit:
-                        profit = shares * (current_price - entry_price) - (shares * current_price * 0.001)
-                        balance += shares * current_price - (shares * current_price * 0.001)
+                        sell_fee = shares * current_price * 0.001
+                        profit = shares * (current_price - entry_price) - (buy_fee + sell_fee)
+                        balance += shares * current_price - sell_fee
                         trade_logger.log_trade('sell', current_price, shares, profit, 'Take Profit',
-                                             current_time, balance, indicators)
+                                             current_time, balance, indicators, buy_fee, sell_fee)
                         shares = 0
                         entry_price = None
                         entry_time = None
+                        buy_fee = 0
                         consecutive_losses = 0
                         continue
                     
                     elif current_return <= -stop_loss:
-                        profit = shares * (current_price - entry_price) - (shares * current_price * 0.001)
-                        balance += shares * current_price - (shares * current_price * 0.001)
+                        sell_fee = shares * current_price * 0.001
+                        profit = shares * (current_price - entry_price) - (buy_fee + sell_fee)
+                        balance += shares * current_price - sell_fee
                         trade_logger.log_trade('sell', current_price, shares, profit, 'Stop Loss',
-                                             current_time, balance, indicators)
+                                             current_time, balance, indicators, buy_fee, sell_fee)
                         shares = 0
                         entry_price = None
                         entry_time = None
+                        buy_fee = 0
                         consecutive_losses += 1
                         continue
                 
                 if shares == 0 and prediction == 1 and probability >= confidence_threshold and \
                    consecutive_losses < max_consecutive_losses and \
-                   20 <= indicators['rsi'] <= 80 and indicators['volume_ratio'] >= 1.2:
+                   15 <= indicators['rsi'] <= 95 and indicators['volume_ratio'] >= 0.5:
                     risk_amount = balance * max_risk
                     position_size = risk_amount / (current_price * stop_loss)
                     target_shares = max(100, int(position_size / 100) * 100)
                     
-                    total_cost = target_shares * current_price * (1 + 0.001)
+                    buy_fee = target_shares * current_price * 0.001
+                    total_cost = target_shares * current_price + buy_fee
                     
                     if total_cost <= balance * 0.9:
                         balance -= total_cost
@@ -742,9 +727,9 @@ def live_trading(symbol='BBCA.JK', model=None, scaler=None, features=None, initi
                         entry_price = current_price
                         entry_time = current_time
                         trade_logger.log_trade('buy', current_price, shares, None, None,
-                                             current_time, balance, indicators)
+                                             current_time, balance, indicators, buy_fee, 0)
                 
-                time.sleep(300)
+                time.sleep(60)
                 
             except KeyboardInterrupt:
                 print("\n🛑 Live trading stopped by user")
@@ -837,7 +822,7 @@ def main():
         print("Dependencies loaded successfully.")
         print("=" * 80)
         
-        SYMBOL = 'BBCA.JK'
+        SYMBOL = 'BBRI.JK'
         INITIAL_BALANCE = 100000000
         
         print("📊 Step 1: Preparing multi-timeframe data...")

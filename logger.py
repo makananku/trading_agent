@@ -19,7 +19,7 @@ class TradingLogger:
         self.end_time = None
         logging.info("TradingLogger initialized")
 
-    def log_trade(self, action, price, shares, profit=None, reason=None, timestamp=None, balance=None, indicators=None):
+    def log_trade(self, action, price, shares, profit=None, reason=None, timestamp=None, balance=None, indicators=None, buy_fee=0, sell_fee=0):
         try:
             trade = {
                 'action': action,
@@ -29,7 +29,9 @@ class TradingLogger:
                 'reason': reason,
                 'timestamp': timestamp or datetime.now(),
                 'balance': balance,
-                'indicators': indicators or {}
+                'indicators': indicators or {},
+                'buy_fee': buy_fee,
+                'sell_fee': sell_fee
             }
             self.trades.append(trade)
             log_message = f"Trade: {action.upper()} | Price: Rp {price:,.2f} | Shares: {shares:,} | "
@@ -37,7 +39,7 @@ class TradingLogger:
                 log_message += f"Profit: Rp {profit:,.2f} | "
             if reason:
                 log_message += f"Reason: {reason} | "
-            log_message += f"Balance: Rp {balance:,.2f} | Indicators: {indicators}"
+            log_message += f"Balance: Rp {balance:,.2f} | Buy Fee: Rp {buy_fee:,.2f} | Sell Fee: Rp {sell_fee:,.2f} | Indicators: {indicators}"
             logging.info(log_message)
         except Exception as e:
             logging.error(f"Error logging trade: {e}")
@@ -76,7 +78,9 @@ class TradingLogger:
             initial_balance = trades_df['balance'].iloc[0] if 'balance' in trades_df else 100000000
             final_balance = trades_df['balance'].iloc[-1] if 'balance' in trades_df else initial_balance
             total_return = ((final_balance - initial_balance) / initial_balance) * 100
-            total_profit = trades_df['profit'].sum() if 'profit' in trades_df else 0
+            total_profit = trades_df[trades_df['profit'].notnull()]['profit'].sum() if 'profit' in trades_df else 0
+            total_buy_fees = trades_df['buy_fee'].sum() if 'buy_fee' in trades_df else 0
+            total_sell_fees = trades_df['sell_fee'].sum() if 'sell_fee' in trades_df else 0
             total_trades = len(trades_df[trades_df['profit'].notnull()])
             profitable_trades = len(trades_df[trades_df['profit'] > 0])
             win_rate = (profitable_trades / total_trades * 100) if total_trades > 0 else 0
@@ -111,7 +115,11 @@ class TradingLogger:
                 reason_trades = trades_df[(trades_df['action'] == 'sell') & (trades_df['reason'] == reason)]
                 avg_profit_reason = reason_trades['profit'].mean() if not reason_trades.empty else 0
                 total_profit_reason = reason_trades['profit'].sum() if not reason_trades.empty else 0
-                sell_summary += f"     {reason}: {count} trades, Avg Profit: Rp {avg_profit_reason:,.0f}, Total: Rp {total_profit_reason:,.0f}\n"
+                total_buy_fees_reason = reason_trades['buy_fee'].sum() if not reason_trades.empty else 0
+                total_sell_fees_reason = reason_trades['sell_fee'].sum() if not reason_trades.empty else 0
+                sell_summary += (f"     {reason}: {count} trades, Avg Profit: Rp {avg_profit_reason:,.0f}, "
+                                 f"Total: Rp {total_profit_reason:,.0f}, Buy Fees: Rp {total_buy_fees_reason:,.0f}, "
+                                 f"Sell Fees: Rp {total_sell_fees_reason:,.0f}\n")
 
             balance_series = trades_df['balance'].dropna()
             returns = balance_series.pct_change().dropna()
@@ -157,6 +165,9 @@ class TradingLogger:
                 f"   Final Balance: Rp {final_balance:,.0f}\n"
                 f"   Total Return: {total_return:.2f}%\n"
                 f"   Total Profit: Rp {total_profit:,.0f}\n"
+                f"   Total Buy Fees: Rp {total_buy_fees:,.0f}\n"
+                f"   Total Sell Fees: Rp {total_sell_fees:,.0f}\n"
+                f"   Net Profit (Profit - Fees): Rp {(total_profit - total_buy_fees - total_sell_fees):,.0f}\n"
                 f"   Average Profit/Trade: Rp {avg_profit:,.0f}\n"
                 f"   Win Rate: {win_rate:.1f}% ({profitable_trades}/{total_trades})\n"
                 f"   Max Drawdown: {max_drawdown:.2f}%\n\n"

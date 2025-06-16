@@ -702,3 +702,1005 @@ Top 5 Feature Importance:
 ===============================================================
 
 2025-06-15 14:45:04,522 - INFO - Trades exported to trades.csv
+2025-06-15 14:48:12,806 - INFO - Live Trading Started - Symbol: BBCA.JK, Initial Balance: Rp 100,000,000
+2025-06-15 14:48:14,214 - INFO - ✅ Successfully retrieved 55 rows for BBCA.JK 5m
+2025-06-15 14:48:15,110 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:53:16,257 - INFO - ✅ Successfully retrieved 55 rows for BBCA.JK 5m
+2025-06-15 14:53:17,102 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:56:50,752 - INFO - TradingLogger initialized
+2025-06-15 14:56:52,413 - INFO - ✅ Successfully retrieved 458 rows for BBCA.JK 5m
+2025-06-15 14:56:53,277 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:56:54,261 - INFO - ✅ Successfully retrieved 314 rows for BBCA.JK 15m
+2025-06-15 14:56:55,275 - INFO - ✅ Successfully retrieved 411 rows for BBCA.JK 1h
+2025-06-15 14:56:56,099 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:56:56,917 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:56:57,961 - INFO - ✅ Successfully retrieved 314 rows for BBCA.JK 15m
+2025-06-15 14:56:58,755 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:56:59,730 - INFO - ✅ Successfully retrieved 411 rows for BBCA.JK 1h
+2025-06-15 14:57:00,728 - INFO - ✅ Successfully retrieved 90 rows for BBCA.JK 1d
+2025-06-15 14:57:01,592 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:57:02,394 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:57:03,358 - INFO - ✅ Successfully retrieved 411 rows for BBCA.JK 1h
+2025-06-15 14:57:04,176 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:57:05,171 - INFO - ✅ Successfully retrieved 90 rows for BBCA.JK 1d
+2025-06-15 14:57:06,146 - INFO - ✅ Successfully retrieved 53 rows for BBCA.JK 1wk
+2025-06-15 14:57:06,981 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:57:07,788 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:57:08,791 - INFO - ✅ Successfully retrieved 236 rows for BBCA.JK 1d
+2025-06-15 14:57:09,658 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:57:10,637 - INFO - ✅ Successfully retrieved 105 rows for BBCA.JK 1wk
+2025-06-15 14:57:11,642 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1mo
+2025-06-15 14:57:12,470 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:57:13,322 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 14:57:14,130 - INFO - Multi-timeframe data prepared: 203 rows, base timeframe: 1d
+2025-06-15 14:57:15,248 - INFO - Target distribution after SMOTE:
+target
+0    134
+1    134
+Name: count, dtype: int64
+2025-06-15 14:57:16,018 - INFO - Dataset prepared successfully: 268 samples, 41 features
+2025-06-15 14:57:55,870 - INFO - Model trained successfully - Accuracy: 0.796, Precision: 1.000, Recall: 0.796, F1: 0.887
+2025-06-15 14:57:57,107 - INFO - Best parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.3, 'max_depth': 5, 'min_child_weight': 1, 'n_estimators': 150, 'subsample': 0.8}
+2025-06-15 14:57:58,847 - INFO - Model metrics set successfully
+2025-06-15 14:57:59,636 - INFO - Starting backtest with initial balance: Rp 100,000,000
+2025-06-15 14:58:00,403 - INFO - Trade: BUY | Price: Rp 7,775.00 | Shares: 3,800 | Balance: Rp 70,425,455.00 | Indicators: {'rsi': 36.27700877906757, 'macd': -181.69569658574983, 'bb_position': 0.017720344326412105, 'volume_ratio': 2.760326617025793, 'probability': 0.99843997}
+2025-06-15 14:58:01,190 - INFO - Trade: SELL | Price: Rp 7,925.00 | Shares: 3,800 | Profit: Rp 539,885.00 | Reason: Take Profit | Balance: Rp 100,510,340.00 | Indicators: {'rsi': 40.08674240895634, 'macd': -192.45750814913117, 'bb_position': 0.1724839394606206, 'volume_ratio': 0.7185840530331961, 'probability': 0.9863289}
+2025-06-15 14:58:02,058 - INFO - Trade: BUY | Price: Rp 8,825.00 | Shares: 3,400 | Balance: Rp 70,475,335.00 | Indicators: {'rsi': 57.75037373728334, 'macd': 75.31383488168649, 'bb_position': 0.8647900992844118, 'volume_ratio': 1.1809075627695802, 'probability': 0.97824556}
+2025-06-15 14:58:02,838 - INFO - Trade: SELL | Price: Rp 8,975.00 | Shares: 3,400 | Profit: Rp 479,485.00 | Reason: Take Profit | Balance: Rp 100,959,820.00 | Indicators: {'rsi': 60.62366120797663, 'macd': 101.15793419994588, 'bb_position': 0.9419297102705011, 'volume_ratio': 0.7238465317253594, 'probability': 0.07425348}
+2025-06-15 14:58:03,689 - INFO - Trade: BUY | Price: Rp 9,475.00 | Shares: 3,100 | Balance: Rp 71,557,947.50 | Indicators: {'rsi': 69.07644745971741, 'macd': 244.4414547374854, 'bb_position': 0.9197941341473764, 'volume_ratio': 1.774293540531691, 'probability': 0.9009479}
+2025-06-15 14:58:04,446 - INFO - Trade: SELL | Price: Rp 9,700.00 | Shares: 3,100 | Profit: Rp 667,430.00 | Reason: Take Profit | Balance: Rp 101,597,877.50 | Indicators: {'rsi': 73.08554584693283, 'macd': 269.93465818360346, 'bb_position': 1.0026613622818796, 'volume_ratio': 1.7898716240319712, 'probability': 0.0069928137}
+2025-06-15 14:58:05,285 - INFO - Trade: BUY | Price: Rp 8,925.00 | Shares: 3,400 | Balance: Rp 71,222,532.50 | Indicators: {'rsi': 43.6292338443732, 'macd': 93.84408406463263, 'bb_position': 0.17198508730086062, 'volume_ratio': 0.8549110851394485, 'probability': 0.9392768}
+2025-06-15 14:58:06,473 - INFO - Trade: SELL | Price: Rp 9,100.00 | Shares: 3,400 | Profit: Rp 564,060.00 | Reason: Take Profit | Balance: Rp 102,131,592.50 | Indicators: {'rsi': 49.824777574956855, 'macd': 78.25772734916609, 'bb_position': 0.3281551585138296, 'volume_ratio': 0.7215058063358871, 'probability': 0.020333646}
+2025-06-15 14:58:07,265 - INFO - Backtest completed - Final Balance: Rp 102,131,592, Return: 2.13%
+2025-06-15 14:58:08,057 - ERROR - Error in performance analysis: '>' not supported between instances of 'NoneType' and 'int'
+2025-06-15 14:58:09,644 - INFO - Trade Summary (Part 1/1):
+===============================================================
+                        TRADING SUMMARY                        
+===============================================================
+📅 Period: 2025-04-08 to 2025-06-10
+💰 Financial Metrics:
+   Initial Balance: Rp 70,425,455
+   Final Balance: Rp 102,131,592
+   Total Return: 45.02%
+   Total Profit: Rp 2,250,860
+   Average Profit/Trade: Rp 562,715
+   Win Rate: 100.0% (4/4)
+   Max Drawdown: 29.90%
+
+📊 Risk Metrics:
+   Volatility: 102.50%
+   Sharpe Ratio: 0.80
+   Risk-Reward Ratio: inf
+
+📈 Trade Analysis:
+   Total Trades: 4
+   Buy Trades: 4
+   Sell Trades: 4
+   Trades/Day: 0.06
+   Average Trade Duration: 3240.00 minutes
+   Market Exposure: 14.29% of time
+   Sell Reasons:
+     Take Profit: 4 trades, Avg Profit: Rp 562,715, Total: Rp 2,250,860
+
+Model Performance Metrics:
+========================================
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         0
+           1       1.00      0.80      0.89        54
+
+    accuracy                           0.80        54
+   macro avg       0.50      0.40      0.44        54
+weighted avg       1.00      0.80      0.89        54
+
+Confusion Matrix:
+[[ 0  0]
+ [11 43]]
+True Positives: 43
+False Positives: 0
+True Negatives: 0
+False Negatives: 11
+
+Probability Distribution (10 bins):
+[1, 3, 3, 0, 4, 2, 2, 4, 9, 26]
+
+Top 5 Feature Importance:
+========================================
+11. bb_lower: 0.1110
+6. ma20: 0.0519
+31. rsi_medium: 0.0473
+26. resistance_distance: 0.0457
+25. support_distance: 0.0439
+
+📊 Visualizations Available:
+   - Portfolio Value: trading_performance.png (Subplot 1)
+   - Return Distribution: trading_performance.png (Subplot 2)
+   - Cumulative Returns: trading_performance.png (Subplot 3)
+   - Drawdown: trading_performance.png (Subplot 4)
+   - Confusion Matrix: confusion_matrix.png
+📝 Notes:
+   - Check 'detailed_trading_log.txt' for full trade logs.
+   - Model performance metrics assume test set predictions are provided.
+   - Probability calibration may indicate uneven bins.
+===============================================================
+
+2025-06-15 14:58:10,471 - INFO - Trade Summary:
+===============================================================
+                        TRADING SUMMARY                        
+===============================================================
+📅 Period: 2025-04-08 to 2025-06-10
+💰 Financial Metrics:
+   Initial Balance: Rp 70,425,455
+   Final Balance: Rp 102,131,592
+   Total Return: 45.02%
+   Total Profit: Rp 2,250,860
+   Average Profit/Trade: Rp 562,715
+   Win Rate: 100.0% (4/4)
+   Max Drawdown: 29.90%
+
+📊 Risk Metrics:
+   Volatility: 102.50%
+   Sharpe Ratio: 0.80
+   Risk-Reward Ratio: inf
+
+📈 Trade Analysis:
+   Total Trades: 4
+   Buy Trades: 4
+   Sell Trades: 4
+   Trades/Day: 0.06
+   Average Trade Duration: 3240.00 minutes
+   Market Exposure: 14.29% of time
+   Sell Reasons:
+     Take Profit: 4 trades, Avg Profit: Rp 562,715, Total: Rp 2,250,860
+
+Model Performance Metrics:
+========================================
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         0
+           1       1.00      0.80      0.89        54
+
+    accuracy                           0.80        54
+   macro avg       0.50      0.40      0.44        54
+weighted avg       1.00      0.80      0.89        54
+
+Confusion Matrix:
+[[ 0  0]
+ [11 43]]
+True Positives: 43
+False Positives: 0
+True Negatives: 0
+False Negatives: 11
+
+Probability Distribution (10 bins):
+[1, 3, 3, 0, 4, 2, 2, 4, 9, 26]
+
+Top 5 Feature Importance:
+========================================
+11. bb_lower: 0.1110
+6. ma20: 0.0519
+31. rsi_medium: 0.0473
+26. resistance_distance: 0.0457
+25. support_distance: 0.0439
+
+📊 Visualizations Available:
+   - Portfolio Value: trading_performance.png (Subplot 1)
+   - Return Distribution: trading_performance.png (Subplot 2)
+   - Cumulative Returns: trading_performance.png (Subplot 3)
+   - Drawdown: trading_performance.png (Subplot 4)
+   - Confusion Matrix: confusion_matrix.png
+📝 Notes:
+   - Check 'detailed_trading_log.txt' for full trade logs.
+   - Model performance metrics assume test set predictions are provided.
+   - Probability calibration may indicate uneven bins.
+===============================================================
+
+2025-06-15 14:58:11,394 - INFO - Trades exported to trades.csv
+2025-06-15 15:03:37,596 - INFO - TradingLogger initialized
+2025-06-15 15:03:39,107 - INFO - ✅ Successfully retrieved 458 rows for BBCA.JK 5m
+2025-06-15 15:03:39,935 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 15:03:40,866 - INFO - ✅ Successfully retrieved 314 rows for BBCA.JK 15m
+2025-06-15 15:03:41,804 - INFO - ✅ Successfully retrieved 411 rows for BBCA.JK 1h
+2025-06-15 15:03:42,617 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 15:03:43,444 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 15:03:44,465 - INFO - ✅ Successfully retrieved 314 rows for BBCA.JK 15m
+2025-06-15 15:03:45,267 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 15:03:46,278 - INFO - ✅ Successfully retrieved 411 rows for BBCA.JK 1h
+2025-06-15 15:03:47,249 - INFO - ✅ Successfully retrieved 90 rows for BBCA.JK 1d
+2025-06-15 15:03:48,094 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 15:03:48,948 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 15:03:49,976 - INFO - ✅ Successfully retrieved 411 rows for BBCA.JK 1h
+2025-06-15 15:03:50,852 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 15:03:51,830 - INFO - ✅ Successfully retrieved 90 rows for BBCA.JK 1d
+2025-06-15 15:03:52,826 - INFO - ✅ Successfully retrieved 53 rows for BBCA.JK 1wk
+2025-06-15 15:03:53,628 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 15:03:54,480 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 15:03:55,446 - INFO - ✅ Successfully retrieved 236 rows for BBCA.JK 1d
+2025-06-15 15:03:56,267 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 15:03:57,240 - INFO - ✅ Successfully retrieved 105 rows for BBCA.JK 1wk
+2025-06-15 15:03:58,253 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1mo
+2025-06-15 15:03:59,097 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 15:03:59,996 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 15:04:00,855 - INFO - Multi-timeframe data prepared: 203 rows, base timeframe: 1d
+2025-06-15 15:04:02,135 - INFO - Target distribution after SMOTE:
+target
+0    134
+1    134
+Name: count, dtype: int64
+2025-06-15 15:04:02,971 - INFO - Dataset prepared successfully: 268 samples, 41 features
+2025-06-15 15:04:31,947 - INFO - Model trained successfully - Accuracy: 0.741, Precision: 1.000, Recall: 0.741, F1: 0.851
+2025-06-15 15:04:32,781 - INFO - Best parameters: {'colsample_bytree': 0.9, 'learning_rate': 0.4, 'max_depth': 2, 'min_child_weight': 1, 'n_estimators': 50, 'subsample': 1.0}
+2025-06-15 15:04:34,517 - INFO - Model metrics set successfully
+2025-06-15 15:04:35,441 - INFO - Starting backtest with initial balance: Rp 100,000,000
+2025-06-15 15:04:36,253 - INFO - Trade: BUY | Price: Rp 7,775.00 | Shares: 3,800 | Balance: Rp 70,425,455.00 | Indicators: {'rsi': 36.27700878938151, 'macd': -181.69569635023254, 'bb_position': 0.017720344326510505, 'volume_ratio': 2.760326617025793, 'probability': 0.95539457}
+2025-06-15 15:04:37,052 - INFO - Trade: SELL | Price: Rp 7,925.00 | Shares: 3,800 | Profit: Rp 539,885.00 | Reason: Take Profit | Balance: Rp 100,510,340.00 | Indicators: {'rsi': 40.0867424175776, 'macd': -192.45750793104799, 'bb_position': 0.17248393946068377, 'volume_ratio': 0.7185840530331961, 'probability': 0.98710155}
+2025-06-15 15:04:37,829 - INFO - Trade: BUY | Price: Rp 8,225.00 | Shares: 3,600 | Balance: Rp 70,870,730.00 | Indicators: {'rsi': 46.92162077493348, 'macd': -174.76425480569287, 'bb_position': 0.4092681435136681, 'volume_ratio': 0.7537310178463695, 'probability': 0.774811}
+2025-06-15 15:04:38,626 - INFO - Trade: SELL | Price: Rp 8,275.00 | Shares: 3,600 | Profit: Rp 150,210.00 | Reason: Take Profit | Balance: Rp 100,630,940.00 | Indicators: {'rsi': 47.98663699915328, 'macd': -154.92180002308305, 'bb_position': 0.4627766575522816, 'volume_ratio': 0.4402757870516662, 'probability': 0.95140225}
+2025-06-15 15:04:39,415 - INFO - Trade: BUY | Price: Rp 8,475.00 | Shares: 3,500 | Balance: Rp 70,938,777.50 | Indicators: {'rsi': 51.06268221715485, 'macd': 3.888923329177487, 'bb_position': 0.6981338596987424, 'volume_ratio': 0.7996518996068982, 'probability': 0.8731254}
+2025-06-15 15:04:40,238 - INFO - Trade: SELL | Price: Rp 8,600.00 | Shares: 3,500 | Profit: Rp 407,400.00 | Reason: Take Profit | Balance: Rp 101,008,677.50 | Indicators: {'rsi': 53.61832002268962, 'macd': 17.461921227435596, 'bb_position': 0.7857145146620653, 'volume_ratio': 0.36047691014208527, 'probability': 0.8974167}
+2025-06-15 15:04:41,012 - INFO - Trade: BUY | Price: Rp 8,825.00 | Shares: 3,400 | Balance: Rp 70,973,672.50 | Indicators: {'rsi': 57.75037373874198, 'macd': 75.31383495597038, 'bb_position': 0.8647900992843243, 'volume_ratio': 1.1809075627695802, 'probability': 0.8475147}
+2025-06-15 15:04:41,855 - INFO - Trade: SELL | Price: Rp 8,975.00 | Shares: 3,400 | Profit: Rp 479,485.00 | Reason: Take Profit | Balance: Rp 101,458,157.50 | Indicators: {'rsi': 60.62366120903231, 'macd': 101.15793426872915, 'bb_position': 0.9419297102704066, 'volume_ratio': 0.7238465317253594, 'probability': 0.07963965}
+2025-06-15 15:04:42,760 - INFO - Trade: BUY | Price: Rp 8,975.00 | Shares: 3,300 | Balance: Rp 71,811,040.00 | Indicators: {'rsi': 60.62366120903231, 'macd': 120.25336325429635, 'bb_position': 0.8955533289584827, 'volume_ratio': 0.6916186742870557, 'probability': 0.79632384}
+2025-06-15 15:04:43,578 - INFO - Trade: SELL | Price: Rp 9,025.00 | Shares: 3,300 | Profit: Rp 135,217.50 | Reason: Take Profit | Balance: Rp 101,563,757.50 | Indicators: {'rsi': 61.6323778916646, 'macd': 137.8323647301204, 'bb_position': 0.8890876876733171, 'volume_ratio': 0.431663015105268, 'probability': 0.84210163}
+2025-06-15 15:04:44,344 - INFO - Trade: BUY | Price: Rp 9,000.00 | Shares: 3,300 | Balance: Rp 71,834,057.50 | Indicators: {'rsi': 59.82828503253501, 'macd': 159.49403154041465, 'bb_position': 0.8084516296407539, 'volume_ratio': 0.5564768722761257, 'probability': 0.6520371}
+2025-06-15 15:04:45,127 - INFO - Trade: SELL | Price: Rp 9,275.00 | Shares: 3,300 | Profit: Rp 876,892.50 | Reason: Take Profit | Balance: Rp 102,410,950.00 | Indicators: {'rsi': 65.71834042675906, 'macd': 181.58702191652083, 'bb_position': 0.9971831333649844, 'volume_ratio': 1.7529000225284443, 'probability': 0.016352266}
+2025-06-15 15:04:45,907 - INFO - Trade: BUY | Price: Rp 9,300.00 | Shares: 3,300 | Balance: Rp 71,690,260.00 | Indicators: {'rsi': 66.24022591396132, 'macd': 208.5183724293729, 'bb_position': 0.9140296496259975, 'volume_ratio': 0.7418933513956973, 'probability': 0.56632143}
+2025-06-15 15:04:46,712 - INFO - Trade: SELL | Price: Rp 9,500.00 | Shares: 3,300 | Profit: Rp 628,650.00 | Reason: Take Profit | Balance: Rp 103,008,910.00 | Indicators: {'rsi': 70.15462492940918, 'macd': 231.25643575903268, 'bb_position': 0.9953987729341317, 'volume_ratio': 1.2925880665762102, 'probability': 0.0999668}
+2025-06-15 15:04:47,506 - INFO - Trade: BUY | Price: Rp 9,475.00 | Shares: 3,200 | Balance: Rp 72,658,590.00 | Indicators: {'rsi': 69.07644745982218, 'macd': 244.44145476934682, 'bb_position': 0.9197941341473536, 'volume_ratio': 1.774293540531691, 'probability': 0.71104014}
+2025-06-15 15:04:48,288 - INFO - Trade: SELL | Price: Rp 9,700.00 | Shares: 3,200 | Profit: Rp 688,960.00 | Reason: Take Profit | Balance: Rp 103,667,550.00 | Indicators: {'rsi': 73.08554584678564, 'macd': 269.93465821310565, 'bb_position': 1.002661362281862, 'volume_ratio': 1.7898716240319712, 'probability': 0.02064064}
+2025-06-15 15:04:49,080 - INFO - Trade: BUY | Price: Rp 8,925.00 | Shares: 3,400 | Balance: Rp 73,292,205.00 | Indicators: {'rsi': 43.62923384530946, 'macd': 93.8440840793919, 'bb_position': 0.17198508730084366, 'volume_ratio': 0.8549110851394485, 'probability': 0.83112913}
+2025-06-15 15:04:49,891 - INFO - Trade: SELL | Price: Rp 9,100.00 | Shares: 3,400 | Profit: Rp 564,060.00 | Reason: Take Profit | Balance: Rp 104,201,265.00 | Indicators: {'rsi': 49.824777575598844, 'macd': 78.25772736283216, 'bb_position': 0.3281551585138205, 'volume_ratio': 0.7215058063358871, 'probability': 0.053281695}
+2025-06-15 15:04:50,708 - INFO - Trade: BUY | Price: Rp 9,050.00 | Shares: 3,400 | Balance: Rp 73,400,495.00 | Indicators: {'rsi': 48.19494273703036, 'macd': 61.165764381337794, 'bb_position': 0.2775322199215971, 'volume_ratio': 0.5064119468029865, 'probability': 0.8589108}
+2025-06-15 15:04:51,659 - INFO - Trade: SELL | Price: Rp 9,125.00 | Shares: 3,400 | Profit: Rp 223,975.00 | Reason: Take Profit | Balance: Rp 104,394,470.00 | Indicators: {'rsi': 50.7950028085991, 'macd': 53.06048552824177, 'bb_position': 0.3469956079030486, 'volume_ratio': 0.37569508471209667, 'probability': 0.29450345}
+2025-06-15 15:04:52,456 - INFO - Trade: BUY | Price: Rp 9,025.00 | Shares: 3,400 | Balance: Rp 73,678,785.00 | Indicators: {'rsi': 47.380450064216866, 'macd': 38.12830995355762, 'bb_position': 0.24383385312874023, 'volume_ratio': 0.7628873323326683, 'probability': 0.8589108}
+2025-06-15 15:04:53,259 - INFO - Trade: SELL | Price: Rp 9,025.00 | Shares: 3,400 | Profit: Rp -30,685.00 | Reason: Final Close | Balance: Rp 104,333,100.00 | Indicators: {'rsi': 47.380450064216866, 'macd': 38.12830995355762, 'bb_position': 0.24383385312874023, 'volume_ratio': 0.7628873323326683, 'probability': 0.8589108}
+2025-06-15 15:04:54,044 - INFO - Backtest completed - Final Balance: Rp 104,333,100, Return: 4.33%
+2025-06-15 15:04:54,937 - ERROR - Error in performance analysis: '>' not supported between instances of 'NoneType' and 'int'
+2025-06-15 15:04:56,434 - INFO - Trade Summary (Part 1/1):
+===============================================================
+                        TRADING SUMMARY                        
+===============================================================
+📅 Period: 2025-04-08 to 2025-06-13
+💰 Financial Metrics:
+   Initial Balance: Rp 70,425,455
+   Final Balance: Rp 104,333,100
+   Total Return: 48.15%
+   Total Profit: Rp 4,664,050
+   Average Profit/Trade: Rp 424,005
+   Win Rate: 90.9% (10/11)
+   Max Drawdown: 30.00%
+
+📊 Risk Metrics:
+   Volatility: 168.63%
+   Sharpe Ratio: 1.02
+   Risk-Reward Ratio: 15.30
+
+📈 Trade Analysis:
+   Total Trades: 11
+   Buy Trades: 11
+   Sell Trades: 11
+   Trades/Day: 0.17
+   Average Trade Duration: 2749.09 minutes
+   Market Exposure: 31.82% of time
+   Sell Reasons:
+     Take Profit: 10 trades, Avg Profit: Rp 469,474, Total: Rp 4,694,735
+     Final Close: 1 trades, Avg Profit: Rp -30,685, Total: Rp -30,685
+
+Model Performance Metrics:
+========================================
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         0
+           1       1.00      0.74      0.85        54
+
+    accuracy                           0.74        54
+   macro avg       0.50      0.37      0.43        54
+weighted avg       1.00      0.74      0.85        54
+
+Confusion Matrix:
+[[ 0  0]
+ [14 40]]
+True Positives: 40
+False Positives: 0
+True Negatives: 0
+False Negatives: 14
+
+Probability Distribution (10 bins):
+[0, 2, 5, 3, 4, 3, 8, 6, 13, 10]
+
+Top 5 Feature Importance:
+========================================
+17. volume_ratio: 0.1310
+9. ema26: 0.1139
+2. rsi_fast: 0.0735
+25. support_distance: 0.0531
+14. macd: 0.0382
+
+📊 Visualizations Available:
+   - Portfolio Value: trading_performance.png (Subplot 1)
+   - Return Distribution: trading_performance.png (Subplot 2)
+   - Cumulative Returns: trading_performance.png (Subplot 3)
+   - Drawdown: trading_performance.png (Subplot 4)
+   - Confusion Matrix: confusion_matrix.png
+📝 Notes:
+   - Check 'detailed_trading_log.txt' for full trade logs.
+   - Model performance metrics assume test set predictions are provided.
+   - Probability calibration may indicate uneven bins.
+===============================================================
+
+2025-06-15 15:04:57,242 - INFO - Trade Summary:
+===============================================================
+                        TRADING SUMMARY                        
+===============================================================
+📅 Period: 2025-04-08 to 2025-06-13
+💰 Financial Metrics:
+   Initial Balance: Rp 70,425,455
+   Final Balance: Rp 104,333,100
+   Total Return: 48.15%
+   Total Profit: Rp 4,664,050
+   Average Profit/Trade: Rp 424,005
+   Win Rate: 90.9% (10/11)
+   Max Drawdown: 30.00%
+
+📊 Risk Metrics:
+   Volatility: 168.63%
+   Sharpe Ratio: 1.02
+   Risk-Reward Ratio: 15.30
+
+📈 Trade Analysis:
+   Total Trades: 11
+   Buy Trades: 11
+   Sell Trades: 11
+   Trades/Day: 0.17
+   Average Trade Duration: 2749.09 minutes
+   Market Exposure: 31.82% of time
+   Sell Reasons:
+     Take Profit: 10 trades, Avg Profit: Rp 469,474, Total: Rp 4,694,735
+     Final Close: 1 trades, Avg Profit: Rp -30,685, Total: Rp -30,685
+
+Model Performance Metrics:
+========================================
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         0
+           1       1.00      0.74      0.85        54
+
+    accuracy                           0.74        54
+   macro avg       0.50      0.37      0.43        54
+weighted avg       1.00      0.74      0.85        54
+
+Confusion Matrix:
+[[ 0  0]
+ [14 40]]
+True Positives: 40
+False Positives: 0
+True Negatives: 0
+False Negatives: 14
+
+Probability Distribution (10 bins):
+[0, 2, 5, 3, 4, 3, 8, 6, 13, 10]
+
+Top 5 Feature Importance:
+========================================
+17. volume_ratio: 0.1310
+9. ema26: 0.1139
+2. rsi_fast: 0.0735
+25. support_distance: 0.0531
+14. macd: 0.0382
+
+📊 Visualizations Available:
+   - Portfolio Value: trading_performance.png (Subplot 1)
+   - Return Distribution: trading_performance.png (Subplot 2)
+   - Cumulative Returns: trading_performance.png (Subplot 3)
+   - Drawdown: trading_performance.png (Subplot 4)
+   - Confusion Matrix: confusion_matrix.png
+📝 Notes:
+   - Check 'detailed_trading_log.txt' for full trade logs.
+   - Model performance metrics assume test set predictions are provided.
+   - Probability calibration may indicate uneven bins.
+===============================================================
+
+2025-06-15 15:04:58,128 - INFO - Trades exported to trades.csv
+2025-06-15 17:09:55,515 - INFO - TradingLogger initialized
+2025-06-15 17:09:57,517 - INFO - ✅ Successfully retrieved 458 rows for BBCA.JK 5m
+2025-06-15 17:09:58,594 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:09:59,727 - INFO - ✅ Successfully retrieved 314 rows for BBCA.JK 15m
+2025-06-15 17:10:00,796 - INFO - ✅ Successfully retrieved 411 rows for BBCA.JK 1h
+2025-06-15 17:10:01,741 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:10:02,714 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:10:03,978 - INFO - ✅ Successfully retrieved 314 rows for BBCA.JK 15m
+2025-06-15 17:10:04,815 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:10:05,906 - INFO - ✅ Successfully retrieved 411 rows for BBCA.JK 1h
+2025-06-15 17:10:07,331 - INFO - ✅ Successfully retrieved 90 rows for BBCA.JK 1d
+2025-06-15 17:10:08,419 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:10:09,334 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:10:10,384 - INFO - ✅ Successfully retrieved 411 rows for BBCA.JK 1h
+2025-06-15 17:10:11,308 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:10:12,319 - INFO - ✅ Successfully retrieved 90 rows for BBCA.JK 1d
+2025-06-15 17:10:13,430 - INFO - ✅ Successfully retrieved 53 rows for BBCA.JK 1wk
+2025-06-15 17:10:14,548 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:10:15,381 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:10:16,346 - INFO - ✅ Successfully retrieved 236 rows for BBCA.JK 1d
+2025-06-15 17:10:17,306 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:10:18,693 - INFO - ✅ Successfully retrieved 105 rows for BBCA.JK 1wk
+2025-06-15 17:10:19,676 - INFO - ✅ Successfully retrieved 60 rows for BBCA.JK 1mo
+2025-06-15 17:10:20,556 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:10:21,376 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:10:22,399 - INFO - Multi-timeframe data prepared: 203 rows, base timeframe: 1d
+2025-06-15 17:10:23,841 - INFO - Target distribution after SMOTE:
+target
+0    134
+1    134
+Name: count, dtype: int64
+2025-06-15 17:10:24,671 - INFO - Dataset prepared successfully: 268 samples, 41 features
+2025-06-15 17:11:06,776 - INFO - Model trained successfully - Accuracy: 0.796, Precision: 1.000, Recall: 0.796, F1: 0.887
+2025-06-15 17:11:07,754 - INFO - Best parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.3, 'max_depth': 2, 'min_child_weight': 2, 'n_estimators': 100, 'subsample': 0.9}
+2025-06-15 17:11:10,709 - INFO - Model metrics set successfully
+2025-06-15 17:11:11,828 - INFO - Starting backtest with initial balance: Rp 100,000,000
+2025-06-15 17:11:12,981 - INFO - Trade: BUY | Price: Rp 7,775.00 | Shares: 3,800 | Balance: Rp 70,425,455.00 | Buy Fee: Rp 29,545.00 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 36.27700877906757, 'macd': -181.69569658574983, 'bb_position': 0.017720344326412105, 'volume_ratio': 2.760326617025793, 'probability': 0.9836225}
+2025-06-15 17:11:14,000 - INFO - Trade: SELL | Price: Rp 7,925.00 | Shares: 3,800 | Profit: Rp 510,340.00 | Reason: Take Profit | Balance: Rp 100,510,340.00 | Buy Fee: Rp 29,545.00 | Sell Fee: Rp 30,115.00 | Indicators: {'rsi': 40.08674240895634, 'macd': -192.45750814913117, 'bb_position': 0.1724839394606206, 'volume_ratio': 0.7185840530331961, 'probability': 0.9881643}
+2025-06-15 17:11:14,803 - INFO - Trade: BUY | Price: Rp 8,225.00 | Shares: 3,600 | Balance: Rp 70,870,730.00 | Buy Fee: Rp 29,610.00 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 46.921620769006, 'macd': -174.7642550076307, 'bb_position': 0.4092681435136503, 'volume_ratio': 0.7537310178463695, 'probability': 0.84503746}
+2025-06-15 17:11:15,724 - INFO - Trade: SELL | Price: Rp 8,275.00 | Shares: 3,600 | Profit: Rp 120,600.00 | Reason: Take Profit | Balance: Rp 100,630,940.00 | Buy Fee: Rp 29,610.00 | Sell Fee: Rp 29,790.00 | Indicators: {'rsi': 47.98663699360589, 'macd': -154.92180021007334, 'bb_position': 0.4627766575522735, 'volume_ratio': 0.4402757870516662, 'probability': 0.9794486}
+2025-06-15 17:11:16,865 - INFO - Trade: BUY | Price: Rp 8,475.00 | Shares: 3,500 | Balance: Rp 70,938,777.50 | Buy Fee: Rp 29,662.50 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 51.062682214452565, 'macd': 3.88892322812535, 'bb_position': 0.6981338596988101, 'volume_ratio': 0.7996518996068982, 'probability': 0.8302216}
+2025-06-15 17:11:18,033 - INFO - Trade: SELL | Price: Rp 8,600.00 | Shares: 3,500 | Profit: Rp 377,737.50 | Reason: Take Profit | Balance: Rp 101,008,677.50 | Buy Fee: Rp 29,662.50 | Sell Fee: Rp 30,100.00 | Indicators: {'rsi': 53.6183200204633, 'macd': 17.46192113386678, 'bb_position': 0.7857145146621577, 'volume_ratio': 0.36047691014208527, 'probability': 0.9209549}
+2025-06-15 17:11:19,035 - INFO - Trade: BUY | Price: Rp 8,825.00 | Shares: 3,400 | Balance: Rp 70,973,672.50 | Buy Fee: Rp 30,005.00 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 57.75037373728334, 'macd': 75.31383488168649, 'bb_position': 0.8647900992844118, 'volume_ratio': 1.1809075627695802, 'probability': 0.9364906}
+2025-06-15 17:11:20,147 - INFO - Trade: SELL | Price: Rp 8,975.00 | Shares: 3,400 | Profit: Rp 449,480.00 | Reason: Take Profit | Balance: Rp 101,458,157.50 | Buy Fee: Rp 30,005.00 | Sell Fee: Rp 30,515.00 | Indicators: {'rsi': 60.62366120797663, 'macd': 101.15793419994588, 'bb_position': 0.9419297102705011, 'volume_ratio': 0.7238465317253594, 'probability': 0.16535081}
+2025-06-15 17:11:20,967 - INFO - Trade: BUY | Price: Rp 8,975.00 | Shares: 3,300 | Balance: Rp 71,811,040.00 | Buy Fee: Rp 29,617.50 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 60.623661207976625, 'macd': 120.25336319060807, 'bb_position': 0.8955533289585598, 'volume_ratio': 0.6916186742870557, 'probability': 0.85459733}
+2025-06-15 17:11:21,959 - INFO - Trade: SELL | Price: Rp 9,025.00 | Shares: 3,300 | Profit: Rp 105,600.00 | Reason: Take Profit | Balance: Rp 101,563,757.50 | Buy Fee: Rp 29,617.50 | Sell Fee: Rp 29,782.50 | Indicators: {'rsi': 61.63237789073986, 'macd': 137.83236467114875, 'bb_position': 0.8890876876733814, 'volume_ratio': 0.431663015105268, 'probability': 0.8023941}
+2025-06-15 17:11:22,818 - INFO - Trade: BUY | Price: Rp 9,000.00 | Shares: 3,300 | Balance: Rp 71,834,057.50 | Buy Fee: Rp 29,700.00 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 59.82828503152815, 'macd': 159.49403149359932, 'bb_position': 0.8084516296408094, 'volume_ratio': 0.5564768722761257, 'probability': 0.8109578}
+2025-06-15 17:11:23,844 - INFO - Trade: SELL | Price: Rp 9,275.00 | Shares: 3,300 | Profit: Rp 847,192.50 | Reason: Take Profit | Balance: Rp 102,410,950.00 | Buy Fee: Rp 29,700.00 | Sell Fee: Rp 30,607.50 | Indicators: {'rsi': 65.71834042636921, 'macd': 181.5870218731743, 'bb_position': 0.9971831333650577, 'volume_ratio': 1.7529000225284443, 'probability': 0.007922898}
+2025-06-15 17:11:24,798 - INFO - Trade: BUY | Price: Rp 9,300.00 | Shares: 3,300 | Balance: Rp 71,690,260.00 | Buy Fee: Rp 30,690.00 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 66.24022591361837, 'macd': 208.51837239221095, 'bb_position': 0.9140296496260402, 'volume_ratio': 0.7418933513956973, 'probability': 0.6983703}
+2025-06-15 17:11:25,689 - INFO - Trade: SELL | Price: Rp 9,500.00 | Shares: 3,300 | Profit: Rp 597,960.00 | Reason: Take Profit | Balance: Rp 103,008,910.00 | Buy Fee: Rp 30,690.00 | Sell Fee: Rp 31,350.00 | Indicators: {'rsi': 70.1546249293776, 'macd': 231.25643572462286, 'bb_position': 0.9953987729341681, 'volume_ratio': 1.2925880665762102, 'probability': 0.08888911}
+2025-06-15 17:11:26,694 - INFO - Trade: BUY | Price: Rp 9,475.00 | Shares: 3,200 | Balance: Rp 72,658,590.00 | Buy Fee: Rp 30,320.00 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 69.07644745971741, 'macd': 244.4414547374854, 'bb_position': 0.9197941341473764, 'volume_ratio': 1.774293540531691, 'probability': 0.80771405}
+2025-06-15 17:11:27,852 - INFO - Trade: SELL | Price: Rp 9,700.00 | Shares: 3,200 | Profit: Rp 658,640.00 | Reason: Take Profit | Balance: Rp 103,667,550.00 | Buy Fee: Rp 30,320.00 | Sell Fee: Rp 31,040.00 | Indicators: {'rsi': 73.08554584693283, 'macd': 269.93465818360346, 'bb_position': 1.0026613622818796, 'volume_ratio': 1.7898716240319712, 'probability': 0.023674494}
+2025-06-15 17:11:28,827 - INFO - Trade: BUY | Price: Rp 8,925.00 | Shares: 3,400 | Balance: Rp 73,292,205.00 | Buy Fee: Rp 30,345.00 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 43.6292338443732, 'macd': 93.84408406463263, 'bb_position': 0.17198508730086062, 'volume_ratio': 0.8549110851394485, 'probability': 0.7773638}
+2025-06-15 17:11:29,659 - INFO - Trade: SELL | Price: Rp 9,100.00 | Shares: 3,400 | Profit: Rp 533,715.00 | Reason: Take Profit | Balance: Rp 104,201,265.00 | Buy Fee: Rp 30,345.00 | Sell Fee: Rp 30,940.00 | Indicators: {'rsi': 49.824777574956855, 'macd': 78.25772734916609, 'bb_position': 0.3281551585138296, 'volume_ratio': 0.7215058063358871, 'probability': 0.06662515}
+2025-06-15 17:11:30,517 - INFO - Trade: BUY | Price: Rp 9,050.00 | Shares: 3,400 | Balance: Rp 73,400,495.00 | Buy Fee: Rp 30,770.00 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 48.194942736360666, 'macd': 61.165764368683085, 'bb_position': 0.2775322199216097, 'volume_ratio': 0.5064119468029865, 'probability': 0.91504556}
+2025-06-15 17:11:31,654 - INFO - Trade: SELL | Price: Rp 9,125.00 | Shares: 3,400 | Profit: Rp 193,205.00 | Reason: Take Profit | Balance: Rp 104,394,470.00 | Buy Fee: Rp 30,770.00 | Sell Fee: Rp 31,025.00 | Indicators: {'rsi': 50.795002808036806, 'macd': 53.06048551652566, 'bb_position': 0.3469956079030579, 'volume_ratio': 0.37569508471209667, 'probability': 0.10805926}
+2025-06-15 17:11:32,551 - INFO - Trade: BUY | Price: Rp 9,025.00 | Shares: 3,400 | Balance: Rp 73,678,785.00 | Buy Fee: Rp 30,685.00 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 47.38045006360199, 'macd': 38.128309942709166, 'bb_position': 0.243833853128755, 'volume_ratio': 0.7628873323326683, 'probability': 0.8613801}
+2025-06-15 17:11:33,380 - INFO - Trade: SELL | Price: Rp 9,025.00 | Shares: 3,400 | Profit: Rp -61,370.00 | Reason: Final Close | Balance: Rp 104,333,100.00 | Buy Fee: Rp 30,685.00 | Sell Fee: Rp 30,685.00 | Indicators: {'rsi': 47.38045006360199, 'macd': 38.128309942709166, 'bb_position': 0.243833853128755, 'volume_ratio': 0.7628873323326683, 'probability': 0.8613801}
+2025-06-15 17:11:34,473 - INFO - Backtest completed - Final Balance: Rp 104,333,100, Return: 4.33%
+2025-06-15 17:11:37,562 - ERROR - Error in performance analysis: '>' not supported between instances of 'NoneType' and 'int'
+2025-06-15 17:11:39,290 - INFO - Trade Summary (Part 1/1):
+===============================================================
+                        TRADING SUMMARY                        
+===============================================================
+📅 Period: 2025-04-08 to 2025-06-13
+💰 Financial Metrics:
+   Initial Balance: Rp 70,425,455
+   Final Balance: Rp 104,333,100
+   Total Return: 48.15%
+   Total Profit: Rp 4,333,100
+   Total Buy Fees: Rp 661,900
+   Total Sell Fees: Rp 335,950
+   Net Profit (Profit - Fees): Rp 3,335,250
+   Average Profit/Trade: Rp 393,918
+   Win Rate: 90.9% (10/11)
+   Max Drawdown: 30.00%
+
+📊 Risk Metrics:
+   Volatility: 168.63%
+   Sharpe Ratio: 1.02
+   Risk-Reward Ratio: 7.16
+
+📈 Trade Analysis:
+   Total Trades: 11
+   Buy Trades: 11
+   Sell Trades: 11
+   Trades/Day: 0.17
+   Average Trade Duration: 2749.09 minutes
+   Market Exposure: 31.82% of time
+   Sell Reasons:
+     Take Profit: 10 trades, Avg Profit: Rp 439,447, Total: Rp 4,394,470, Buy Fees: Rp 300,265, Sell Fees: Rp 305,265
+     Final Close: 1 trades, Avg Profit: Rp -61,370, Total: Rp -61,370, Buy Fees: Rp 30,685, Sell Fees: Rp 30,685
+
+Model Performance Metrics:
+========================================
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         0
+           1       1.00      0.80      0.89        54
+
+    accuracy                           0.80        54
+   macro avg       0.50      0.40      0.44        54
+weighted avg       1.00      0.80      0.89        54
+
+Confusion Matrix:
+[[ 0  0]
+ [11 43]]
+True Positives: 43
+False Positives: 0
+True Negatives: 0
+False Negatives: 11
+
+Probability Distribution (10 bins):
+[2, 4, 1, 1, 3, 6, 5, 9, 7, 16]
+
+Top 5 Feature Importance:
+========================================
+11. bb_lower: 0.1016
+26. resistance_distance: 0.0828
+8. ema12: 0.0606
+31. rsi_medium: 0.0496
+25. support_distance: 0.0466
+
+📊 Visualizations Available:
+   - Portfolio Value: trading_performance.png (Subplot 1)
+   - Return Distribution: trading_performance.png (Subplot 2)
+   - Cumulative Returns: trading_performance.png (Subplot 3)
+   - Drawdown: trading_performance.png (Subplot 4)
+   - Confusion Matrix: confusion_matrix.png
+📝 Notes:
+   - Check 'detailed_trading_log.txt' for full trade logs.
+   - Model performance metrics assume test set predictions are provided.
+   - Probability calibration may indicate uneven bins.
+===============================================================
+
+2025-06-15 17:11:40,240 - INFO - Trade Summary:
+===============================================================
+                        TRADING SUMMARY                        
+===============================================================
+📅 Period: 2025-04-08 to 2025-06-13
+💰 Financial Metrics:
+   Initial Balance: Rp 70,425,455
+   Final Balance: Rp 104,333,100
+   Total Return: 48.15%
+   Total Profit: Rp 4,333,100
+   Total Buy Fees: Rp 661,900
+   Total Sell Fees: Rp 335,950
+   Net Profit (Profit - Fees): Rp 3,335,250
+   Average Profit/Trade: Rp 393,918
+   Win Rate: 90.9% (10/11)
+   Max Drawdown: 30.00%
+
+📊 Risk Metrics:
+   Volatility: 168.63%
+   Sharpe Ratio: 1.02
+   Risk-Reward Ratio: 7.16
+
+📈 Trade Analysis:
+   Total Trades: 11
+   Buy Trades: 11
+   Sell Trades: 11
+   Trades/Day: 0.17
+   Average Trade Duration: 2749.09 minutes
+   Market Exposure: 31.82% of time
+   Sell Reasons:
+     Take Profit: 10 trades, Avg Profit: Rp 439,447, Total: Rp 4,394,470, Buy Fees: Rp 300,265, Sell Fees: Rp 305,265
+     Final Close: 1 trades, Avg Profit: Rp -61,370, Total: Rp -61,370, Buy Fees: Rp 30,685, Sell Fees: Rp 30,685
+
+Model Performance Metrics:
+========================================
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         0
+           1       1.00      0.80      0.89        54
+
+    accuracy                           0.80        54
+   macro avg       0.50      0.40      0.44        54
+weighted avg       1.00      0.80      0.89        54
+
+Confusion Matrix:
+[[ 0  0]
+ [11 43]]
+True Positives: 43
+False Positives: 0
+True Negatives: 0
+False Negatives: 11
+
+Probability Distribution (10 bins):
+[2, 4, 1, 1, 3, 6, 5, 9, 7, 16]
+
+Top 5 Feature Importance:
+========================================
+11. bb_lower: 0.1016
+26. resistance_distance: 0.0828
+8. ema12: 0.0606
+31. rsi_medium: 0.0496
+25. support_distance: 0.0466
+
+📊 Visualizations Available:
+   - Portfolio Value: trading_performance.png (Subplot 1)
+   - Return Distribution: trading_performance.png (Subplot 2)
+   - Cumulative Returns: trading_performance.png (Subplot 3)
+   - Drawdown: trading_performance.png (Subplot 4)
+   - Confusion Matrix: confusion_matrix.png
+📝 Notes:
+   - Check 'detailed_trading_log.txt' for full trade logs.
+   - Model performance metrics assume test set predictions are provided.
+   - Probability calibration may indicate uneven bins.
+===============================================================
+
+2025-06-15 17:11:41,246 - INFO - Trades exported to trades.csv
+2025-06-15 17:12:49,955 - INFO - TradingLogger initialized
+2025-06-15 17:12:52,104 - INFO - ✅ Successfully retrieved 546 rows for TSLA 5m
+2025-06-15 17:12:53,324 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:12:54,414 - INFO - ✅ Successfully retrieved 364 rows for TSLA 15m
+2025-06-15 17:12:55,592 - INFO - ✅ Successfully retrieved 420 rows for TSLA 1h
+2025-06-15 17:12:56,546 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:12:57,696 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:12:58,656 - INFO - Multi-timeframe data prepared: 186 rows, base timeframe: 5m
+2025-06-15 17:13:00,053 - INFO - Target distribution after SMOTE:
+target
+0    169
+1    169
+Name: count, dtype: int64
+2025-06-15 17:13:00,949 - INFO - Dataset prepared successfully: 338 samples, 41 features
+2025-06-15 17:13:58,220 - INFO - Model trained successfully - Accuracy: 0.971, Precision: 1.000, Recall: 0.971, F1: 0.985
+2025-06-15 17:13:59,591 - INFO - Best parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.4, 'max_depth': 4, 'min_child_weight': 1, 'n_estimators': 50, 'subsample': 0.9}
+2025-06-15 17:14:02,770 - INFO - Model metrics set successfully
+2025-06-15 17:14:03,930 - INFO - Starting backtest with initial balance: Rp 100,000,000
+2025-06-15 17:14:04,850 - INFO - Trade: BUY | Price: Rp 325.27 | Shares: 92,200 | Balance: Rp 69,979,655.21 | Buy Fee: Rp 29,990.35 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 45.42352060929982, 'macd': 0.027251043791636675, 'bb_position': 0.24780352577856385, 'volume_ratio': 0.565619202671248, 'probability': 0.958952}
+2025-06-15 17:14:05,693 - INFO - Trade: SELL | Price: Rp 327.36 | Shares: 92,200 | Profit: Rp 132,063.27 | Reason: Take Profit | Balance: Rp 100,132,063.27 | Buy Fee: Rp 29,990.35 | Sell Fee: Rp 30,182.59 | Indicators: {'rsi': 55.620175530278914, 'macd': 0.12329848900799334, 'bb_position': 0.8614153005059982, 'volume_ratio': 1.2354030238622788, 'probability': 0.013064832}
+2025-06-15 17:14:06,631 - INFO - Trade: BUY | Price: Rp 326.74 | Shares: 91,900 | Balance: Rp 70,074,170.35 | Buy Fee: Rp 30,027.87 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 52.504194340110935, 'macd': 0.14808517537829857, 'bb_position': 0.6678608667516128, 'volume_ratio': 1.1467467128109146, 'probability': 0.8740212}
+2025-06-15 17:14:07,458 - INFO - Trade: SELL | Price: Rp 329.85 | Shares: 91,900 | Profit: Rp 225,009.43 | Reason: Take Profit | Balance: Rp 100,357,072.70 | Buy Fee: Rp 30,027.87 | Sell Fee: Rp 30,313.22 | Indicators: {'rsi': 63.59382592768716, 'macd': 0.41351054765044637, 'bb_position': 1.243171323690052, 'volume_ratio': 3.456489049026921, 'probability': 0.008984231}
+2025-06-15 17:14:08,408 - INFO - Trade: BUY | Price: Rp 314.45 | Shares: 95,700 | Balance: Rp 70,234,113.66 | Buy Fee: Rp 30,092.87 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 31.70410215005306, 'macd': -1.3235757335372114, 'bb_position': -0.06604442247474064, 'volume_ratio': 0.7015954031604745, 'probability': 0.9073005}
+2025-06-15 17:14:09,387 - INFO - Trade: SELL | Price: Rp 316.03 | Shares: 95,700 | Profit: Rp 90,867.78 | Reason: Take Profit | Balance: Rp 100,447,940.47 | Buy Fee: Rp 30,092.87 | Sell Fee: Rp 30,244.07 | Indicators: {'rsi': 40.96916968237174, 'macd': -1.2808108175836423, 'bb_position': 0.231244512404988, 'volume_ratio': 0.7827349528690885, 'probability': 0.01616727}
+2025-06-15 17:14:10,212 - INFO - Backtest completed - Final Balance: Rp 100,447,940, Return: 0.45%
+2025-06-15 17:14:11,190 - ERROR - Error in performance analysis: '>' not supported between instances of 'NoneType' and 'int'
+2025-06-15 17:14:12,798 - INFO - Trade Summary (Part 1/1):
+===============================================================
+                        TRADING SUMMARY                        
+===============================================================
+📅 Period: 2025-06-12 to 2025-06-13
+💰 Financial Metrics:
+   Initial Balance: Rp 69,979,655
+   Final Balance: Rp 100,447,940
+   Total Return: 43.54%
+   Total Profit: Rp 447,940
+   Total Buy Fees: Rp 180,222
+   Total Sell Fees: Rp 90,740
+   Net Profit (Profit - Fees): Rp 176,978
+   Average Profit/Trade: Rp 149,313
+   Win Rate: 100.0% (3/3)
+   Max Drawdown: 30.02%
+
+📊 Risk Metrics:
+   Volatility: 89.56%
+   Sharpe Ratio: 0.77
+   Risk-Reward Ratio: inf
+
+📈 Trade Analysis:
+   Total Trades: 3
+   Buy Trades: 3
+   Sell Trades: 3
+   Trades/Day: 0.00
+   Average Trade Duration: 5.00 minutes
+   Market Exposure: 1.10% of time
+   Sell Reasons:
+     Take Profit: 3 trades, Avg Profit: Rp 149,313, Total: Rp 447,940, Buy Fees: Rp 90,111, Sell Fees: Rp 90,740
+
+Model Performance Metrics:
+========================================
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         0
+           1       1.00      0.97      0.99        68
+
+    accuracy                           0.97        68
+   macro avg       0.50      0.49      0.49        68
+weighted avg       1.00      0.97      0.99        68
+
+Confusion Matrix:
+[[ 0  0]
+ [ 2 66]]
+True Positives: 66
+False Positives: 0
+True Negatives: 0
+False Negatives: 2
+
+Probability Distribution (10 bins):
+[0, 1, 0, 1, 0, 0, 1, 1, 10, 54]
+
+Top 5 Feature Importance:
+========================================
+34. macd_long: 0.1016
+7. ma50: 0.0673
+18. vwap: 0.0609
+14. macd: 0.0600
+24. price_momentum: 0.0597
+
+📊 Visualizations Available:
+   - Portfolio Value: trading_performance.png (Subplot 1)
+   - Return Distribution: trading_performance.png (Subplot 2)
+   - Cumulative Returns: trading_performance.png (Subplot 3)
+   - Drawdown: trading_performance.png (Subplot 4)
+   - Confusion Matrix: confusion_matrix.png
+📝 Notes:
+   - Check 'detailed_trading_log.txt' for full trade logs.
+   - Model performance metrics assume test set predictions are provided.
+   - Probability calibration may indicate uneven bins.
+===============================================================
+
+2025-06-15 17:14:13,845 - INFO - Trade Summary:
+===============================================================
+                        TRADING SUMMARY                        
+===============================================================
+📅 Period: 2025-06-12 to 2025-06-13
+💰 Financial Metrics:
+   Initial Balance: Rp 69,979,655
+   Final Balance: Rp 100,447,940
+   Total Return: 43.54%
+   Total Profit: Rp 447,940
+   Total Buy Fees: Rp 180,222
+   Total Sell Fees: Rp 90,740
+   Net Profit (Profit - Fees): Rp 176,978
+   Average Profit/Trade: Rp 149,313
+   Win Rate: 100.0% (3/3)
+   Max Drawdown: 30.02%
+
+📊 Risk Metrics:
+   Volatility: 89.56%
+   Sharpe Ratio: 0.77
+   Risk-Reward Ratio: inf
+
+📈 Trade Analysis:
+   Total Trades: 3
+   Buy Trades: 3
+   Sell Trades: 3
+   Trades/Day: 0.00
+   Average Trade Duration: 5.00 minutes
+   Market Exposure: 1.10% of time
+   Sell Reasons:
+     Take Profit: 3 trades, Avg Profit: Rp 149,313, Total: Rp 447,940, Buy Fees: Rp 90,111, Sell Fees: Rp 90,740
+
+Model Performance Metrics:
+========================================
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         0
+           1       1.00      0.97      0.99        68
+
+    accuracy                           0.97        68
+   macro avg       0.50      0.49      0.49        68
+weighted avg       1.00      0.97      0.99        68
+
+Confusion Matrix:
+[[ 0  0]
+ [ 2 66]]
+True Positives: 66
+False Positives: 0
+True Negatives: 0
+False Negatives: 2
+
+Probability Distribution (10 bins):
+[0, 1, 0, 1, 0, 0, 1, 1, 10, 54]
+
+Top 5 Feature Importance:
+========================================
+34. macd_long: 0.1016
+7. ma50: 0.0673
+18. vwap: 0.0609
+14. macd: 0.0600
+24. price_momentum: 0.0597
+
+📊 Visualizations Available:
+   - Portfolio Value: trading_performance.png (Subplot 1)
+   - Return Distribution: trading_performance.png (Subplot 2)
+   - Cumulative Returns: trading_performance.png (Subplot 3)
+   - Drawdown: trading_performance.png (Subplot 4)
+   - Confusion Matrix: confusion_matrix.png
+📝 Notes:
+   - Check 'detailed_trading_log.txt' for full trade logs.
+   - Model performance metrics assume test set predictions are provided.
+   - Probability calibration may indicate uneven bins.
+===============================================================
+
+2025-06-15 17:14:14,745 - INFO - Trades exported to trades.csv
+2025-06-15 17:15:32,197 - INFO - TradingLogger initialized
+2025-06-15 17:15:34,197 - INFO - ✅ Successfully retrieved 546 rows for AAPL 5m
+2025-06-15 17:15:35,072 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:15:36,212 - INFO - ✅ Successfully retrieved 364 rows for AAPL 15m
+2025-06-15 17:15:37,362 - INFO - ✅ Successfully retrieved 420 rows for AAPL 1h
+2025-06-15 17:15:38,413 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:15:39,432 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:15:40,452 - INFO - Multi-timeframe data prepared: 186 rows, base timeframe: 5m
+2025-06-15 17:15:41,465 - ERROR - Error preparing dataset: Expected n_neighbors <= n_samples_fit, but n_neighbors = 6, n_samples_fit = 2, n_samples = 2
+2025-06-15 17:15:42,283 - ERROR - Failed to send Telegram message: 400, Response: {"ok":false,"error_code":400,"description":"Bad Request: can't parse entities: Unsupported start tag \"=\" at byte offset 80"}
+2025-06-15 17:15:43,286 - ERROR - Dataset preparation failed
+2025-06-15 17:15:44,216 - INFO - Trading bot session ended
+2025-06-15 17:17:55,175 - INFO - TradingLogger initialized
+2025-06-15 17:17:57,143 - INFO - ✅ Successfully retrieved 458 rows for BBRI.JK 5m
+2025-06-15 17:17:58,414 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:17:59,478 - INFO - ✅ Successfully retrieved 314 rows for BBRI.JK 15m
+2025-06-15 17:18:01,210 - INFO - ✅ Successfully retrieved 410 rows for BBRI.JK 1h
+2025-06-15 17:18:02,318 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:18:03,317 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:18:04,712 - INFO - ✅ Successfully retrieved 314 rows for BBRI.JK 15m
+2025-06-15 17:18:05,859 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:18:07,140 - INFO - ✅ Successfully retrieved 410 rows for BBRI.JK 1h
+2025-06-15 17:18:08,351 - INFO - ✅ Successfully retrieved 90 rows for BBRI.JK 1d
+2025-06-15 17:18:09,305 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:18:10,176 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:18:11,286 - INFO - ✅ Successfully retrieved 410 rows for BBRI.JK 1h
+2025-06-15 17:18:12,363 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:18:13,432 - INFO - ✅ Successfully retrieved 90 rows for BBRI.JK 1d
+2025-06-15 17:18:14,615 - INFO - ✅ Successfully retrieved 53 rows for BBRI.JK 1wk
+2025-06-15 17:18:15,750 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:18:16,827 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:18:18,068 - INFO - ✅ Successfully retrieved 236 rows for BBRI.JK 1d
+2025-06-15 17:18:19,290 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:18:20,370 - INFO - ✅ Successfully retrieved 105 rows for BBRI.JK 1wk
+2025-06-15 17:18:21,847 - INFO - ✅ Successfully retrieved 60 rows for BBRI.JK 1mo
+2025-06-15 17:18:22,771 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:18:23,687 - ERROR - Error calculating indicators: module 'ta.volume' has no attribute 'MoneyFlowIndexIndicator'
+2025-06-15 17:18:24,477 - INFO - Multi-timeframe data prepared: 203 rows, base timeframe: 1d
+2025-06-15 17:18:25,790 - INFO - Target distribution after SMOTE:
+target
+0    126
+1    126
+Name: count, dtype: int64
+2025-06-15 17:18:26,623 - INFO - Dataset prepared successfully: 252 samples, 41 features
+2025-06-15 17:19:11,859 - INFO - Model trained successfully - Accuracy: 0.667, Precision: 1.000, Recall: 0.660, F1: 0.795
+2025-06-15 17:19:13,455 - INFO - Best parameters: {'colsample_bytree': 0.9, 'learning_rate': 0.4, 'max_depth': 2, 'min_child_weight': 2, 'n_estimators': 30, 'subsample': 0.9}
+2025-06-15 17:19:16,656 - INFO - Model metrics set successfully
+2025-06-15 17:19:17,935 - INFO - Starting backtest with initial balance: Rp 100,000,000
+2025-06-15 17:19:19,051 - INFO - Trade: BUY | Price: Rp 3,430.92 | Shares: 8,700 | Balance: Rp 70,121,120.04 | Buy Fee: Rp 29,849.03 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 44.02421858069898, 'macd': -33.51848813009383, 'bb_position': 0.1918290704011395, 'volume_ratio': 1.0310255540730449, 'probability': 0.9354678}
+2025-06-15 17:19:20,138 - INFO - Trade: SELL | Price: Rp 3,591.60 | Shares: 8,700 | Profit: Rp 1,336,791.84 | Reason: Take Profit | Balance: Rp 101,336,791.84 | Buy Fee: Rp 29,849.03 | Sell Fee: Rp 31,246.92 | Indicators: {'rsi': 49.8077941889073, 'macd': -28.589077886424093, 'bb_position': 0.531801205256959, 'volume_ratio': 1.1612740057407798, 'probability': 0.8359443}
+2025-06-15 17:19:21,364 - INFO - Trade: BUY | Price: Rp 3,630.00 | Shares: 8,300 | Balance: Rp 71,177,662.84 | Buy Fee: Rp 30,129.00 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 51.1079605065979, 'macd': -21.33794332768457, 'bb_position': 0.6178555722100229, 'volume_ratio': 0.8542866063740631, 'probability': 0.7381611}
+2025-06-15 17:19:22,419 - INFO - Trade: SELL | Price: Rp 3,690.00 | Shares: 8,300 | Profit: Rp 437,244.00 | Reason: Take Profit | Balance: Rp 101,774,035.84 | Buy Fee: Rp 30,129.00 | Sell Fee: Rp 30,627.00 | Indicators: {'rsi': 53.15005019071666, 'macd': -10.627362766533679, 'bb_position': 0.7635903238441389, 'volume_ratio': 0.4993993282148171, 'probability': 0.05266723}
+2025-06-15 17:19:23,611 - INFO - Trade: BUY | Price: Rp 3,850.00 | Shares: 7,900 | Balance: Rp 71,328,620.84 | Buy Fee: Rp 30,415.00 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 60.01800333716754, 'macd': 54.20002229948932, 'bb_position': 0.8435948956974053, 'volume_ratio': 0.777701938602908, 'probability': 0.5293508}
+2025-06-15 17:19:24,685 - INFO - Trade: SELL | Price: Rp 3,880.00 | Shares: 7,900 | Profit: Rp 175,933.00 | Reason: Take Profit | Balance: Rp 101,949,968.84 | Buy Fee: Rp 30,415.00 | Sell Fee: Rp 30,652.00 | Indicators: {'rsi': 61.409958240562496, 'macd': 61.4400257220982, 'bb_position': 0.8747020187166137, 'volume_ratio': 0.7219908170472655, 'probability': 0.23537287}
+2025-06-15 17:19:25,768 - INFO - Trade: BUY | Price: Rp 3,860.00 | Shares: 7,900 | Balance: Rp 71,425,474.84 | Buy Fee: Rp 30,494.00 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 59.912443374183695, 'macd': 64.81678024725261, 'bb_position': 0.801014092596175, 'volume_ratio': 0.7081090995283177, 'probability': 0.8377319}
+2025-06-15 17:19:27,163 - INFO - Trade: SELL | Price: Rp 3,880.00 | Shares: 7,900 | Profit: Rp 96,854.00 | Reason: Take Profit | Balance: Rp 102,046,822.84 | Buy Fee: Rp 30,494.00 | Sell Fee: Rp 30,652.00 | Indicators: {'rsi': 60.938257411178824, 'macd': 68.31917447354454, 'bb_position': 0.8188846393749255, 'volume_ratio': 0.43386232685093123, 'probability': 0.6934592}
+2025-06-15 17:19:28,366 - INFO - Trade: BUY | Price: Rp 3,790.00 | Shares: 8,000 | Balance: Rp 71,696,502.84 | Buy Fee: Rp 30,320.00 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 53.36379279930923, 'macd': 65.69181191444295, 'bb_position': 0.6164809887670314, 'volume_ratio': 1.0144148247060147, 'probability': 0.7697082}
+2025-06-15 17:19:29,231 - INFO - Trade: SELL | Price: Rp 3,840.00 | Shares: 8,000 | Profit: Rp 338,960.00 | Reason: Take Profit | Balance: Rp 102,385,782.84 | Buy Fee: Rp 30,320.00 | Sell Fee: Rp 30,720.00 | Indicators: {'rsi': 56.23170473580927, 'macd': 63.45842950368751, 'bb_position': 0.7109767491105532, 'volume_ratio': 0.7030836357416052, 'probability': 0.7244395}
+2025-06-15 17:19:30,191 - INFO - Trade: BUY | Price: Rp 4,090.00 | Shares: 7,500 | Balance: Rp 71,680,107.84 | Buy Fee: Rp 30,675.00 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 67.1194198330102, 'macd': 80.92847542684285, 'bb_position': 1.1532192899122378, 'volume_ratio': 2.1756033722808015, 'probability': 0.7590805}
+2025-06-15 17:19:31,075 - INFO - Trade: SELL | Price: Rp 4,270.00 | Shares: 7,500 | Profit: Rp 1,287,300.00 | Reason: Take Profit | Balance: Rp 103,673,082.84 | Buy Fee: Rp 30,675.00 | Sell Fee: Rp 32,025.00 | Indicators: {'rsi': 72.43604280107165, 'macd': 108.0525458745924, 'bb_position': 1.2389828697111203, 'volume_ratio': 2.398126382355989, 'probability': 0.36221963}
+2025-06-15 17:19:32,011 - INFO - Trade: BUY | Price: Rp 4,210.00 | Shares: 7,300 | Balance: Rp 72,909,349.84 | Buy Fee: Rp 30,733.00 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 68.16715855900546, 'macd': 143.63849224827663, 'bb_position': 0.8909004461583122, 'volume_ratio': 0.9383011738362501, 'probability': 0.65956205}
+2025-06-15 17:19:32,971 - INFO - Trade: SELL | Price: Rp 4,260.00 | Shares: 7,300 | Profit: Rp 303,169.00 | Reason: Take Profit | Balance: Rp 103,976,251.84 | Buy Fee: Rp 30,733.00 | Sell Fee: Rp 31,098.00 | Indicators: {'rsi': 69.87959292824247, 'macd': 150.50577511358142, 'bb_position': 0.9020816808779728, 'volume_ratio': 1.1126192092630758, 'probability': 0.5761332}
+2025-06-15 17:19:33,930 - INFO - Trade: BUY | Price: Rp 4,300.00 | Shares: 7,200 | Balance: Rp 72,985,291.84 | Buy Fee: Rp 30,960.00 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 71.21372454644764, 'macd': 157.36184259934998, 'bb_position': 0.9034816903755182, 'volume_ratio': 0.885794218712776, 'probability': 0.7076338}
+2025-06-15 17:19:34,800 - INFO - Trade: SELL | Price: Rp 4,350.00 | Shares: 7,200 | Profit: Rp 297,720.00 | Reason: Take Profit | Balance: Rp 104,273,971.84 | Buy Fee: Rp 30,960.00 | Sell Fee: Rp 31,320.00 | Indicators: {'rsi': 72.83354017055348, 'macd': 164.9287120813692, 'bb_position': 0.9155363153727184, 'volume_ratio': 0.46390519289142224, 'probability': 0.39195123}
+2025-06-15 17:19:35,865 - INFO - Trade: BUY | Price: Rp 4,320.00 | Shares: 7,200 | Balance: Rp 73,138,867.84 | Buy Fee: Rp 31,104.00 | Sell Fee: Rp 0.00 | Indicators: {'rsi': 70.27826842373409, 'macd': 166.58447920168192, 'bb_position': 0.8412244770094428, 'volume_ratio': 0.6822107652881226, 'probability': 0.8506302}
+2025-06-15 17:19:37,318 - INFO - Trade: SELL | Price: Rp 4,370.00 | Shares: 7,200 | Profit: Rp 297,432.00 | Reason: Take Profit | Balance: Rp 104,571,403.84 | Buy Fee: Rp 31,104.00 | Sell Fee: Rp 31,464.00 | Indicators: {'rsi': 72.03899486195535, 'macd': 169.97193800874538, 'bb_position': 0.8590991210438585, 'volume_ratio': 0.8396996572296073, 'probability': 0.69645876}
+2025-06-15 17:19:38,462 - INFO - Backtest completed - Final Balance: Rp 104,571,404, Return: 4.57%
+2025-06-15 17:19:39,921 - ERROR - Error in performance analysis: '>' not supported between instances of 'NoneType' and 'int'
+2025-06-15 17:19:41,863 - INFO - Trade Summary (Part 1/1):
+===============================================================
+                        TRADING SUMMARY                        
+===============================================================
+📅 Period: 2025-04-09 to 2025-05-27
+💰 Financial Metrics:
+   Initial Balance: Rp 70,121,120
+   Final Balance: Rp 104,571,404
+   Total Return: 49.13%
+   Total Profit: Rp 4,571,404
+   Total Buy Fees: Rp 549,358
+   Total Sell Fees: Rp 279,805
+   Net Profit (Profit - Fees): Rp 3,742,241
+   Average Profit/Trade: Rp 507,934
+   Win Rate: 100.0% (9/9)
+   Max Drawdown: 29.99%
+
+📊 Risk Metrics:
+   Volatility: 155.04%
+   Sharpe Ratio: 0.97
+   Risk-Reward Ratio: inf
+
+📈 Trade Analysis:
+   Total Trades: 9
+   Buy Trades: 9
+   Sell Trades: 9
+   Trades/Day: 0.19
+   Average Trade Duration: 1920.00 minutes
+   Market Exposure: 25.00% of time
+   Sell Reasons:
+     Take Profit: 9 trades, Avg Profit: Rp 507,934, Total: Rp 4,571,404, Buy Fees: Rp 274,679, Sell Fees: Rp 279,805
+
+Model Performance Metrics:
+========================================
+              precision    recall  f1-score   support
+
+           0       0.06      1.00      0.11         1
+           1       1.00      0.66      0.80        50
+
+    accuracy                           0.67        51
+   macro avg       0.53      0.83      0.45        51
+weighted avg       0.98      0.67      0.78        51
+
+Confusion Matrix:
+[[ 1  0]
+ [17 33]]
+True Positives: 33
+False Positives: 0
+True Negatives: 1
+False Negatives: 17
+
+Probability Distribution (10 bins):
+[0, 2, 6, 6, 4, 7, 8, 8, 10, 0]
+
+Top 5 Feature Importance:
+========================================
+19. vwap_distance: 0.0644
+32. rsi_long: 0.0598
+20. atr_percent: 0.0539
+2. rsi_fast: 0.0468
+5. ma10: 0.0431
+
+📊 Visualizations Available:
+   - Portfolio Value: trading_performance.png (Subplot 1)
+   - Return Distribution: trading_performance.png (Subplot 2)
+   - Cumulative Returns: trading_performance.png (Subplot 3)
+   - Drawdown: trading_performance.png (Subplot 4)
+   - Confusion Matrix: confusion_matrix.png
+📝 Notes:
+   - Check 'detailed_trading_log.txt' for full trade logs.
+   - Model performance metrics assume test set predictions are provided.
+   - Probability calibration may indicate uneven bins.
+===============================================================
+
+2025-06-15 17:19:43,140 - INFO - Trade Summary:
+===============================================================
+                        TRADING SUMMARY                        
+===============================================================
+📅 Period: 2025-04-09 to 2025-05-27
+💰 Financial Metrics:
+   Initial Balance: Rp 70,121,120
+   Final Balance: Rp 104,571,404
+   Total Return: 49.13%
+   Total Profit: Rp 4,571,404
+   Total Buy Fees: Rp 549,358
+   Total Sell Fees: Rp 279,805
+   Net Profit (Profit - Fees): Rp 3,742,241
+   Average Profit/Trade: Rp 507,934
+   Win Rate: 100.0% (9/9)
+   Max Drawdown: 29.99%
+
+📊 Risk Metrics:
+   Volatility: 155.04%
+   Sharpe Ratio: 0.97
+   Risk-Reward Ratio: inf
+
+📈 Trade Analysis:
+   Total Trades: 9
+   Buy Trades: 9
+   Sell Trades: 9
+   Trades/Day: 0.19
+   Average Trade Duration: 1920.00 minutes
+   Market Exposure: 25.00% of time
+   Sell Reasons:
+     Take Profit: 9 trades, Avg Profit: Rp 507,934, Total: Rp 4,571,404, Buy Fees: Rp 274,679, Sell Fees: Rp 279,805
+
+Model Performance Metrics:
+========================================
+              precision    recall  f1-score   support
+
+           0       0.06      1.00      0.11         1
+           1       1.00      0.66      0.80        50
+
+    accuracy                           0.67        51
+   macro avg       0.53      0.83      0.45        51
+weighted avg       0.98      0.67      0.78        51
+
+Confusion Matrix:
+[[ 1  0]
+ [17 33]]
+True Positives: 33
+False Positives: 0
+True Negatives: 1
+False Negatives: 17
+
+Probability Distribution (10 bins):
+[0, 2, 6, 6, 4, 7, 8, 8, 10, 0]
+
+Top 5 Feature Importance:
+========================================
+19. vwap_distance: 0.0644
+32. rsi_long: 0.0598
+20. atr_percent: 0.0539
+2. rsi_fast: 0.0468
+5. ma10: 0.0431
+
+📊 Visualizations Available:
+   - Portfolio Value: trading_performance.png (Subplot 1)
+   - Return Distribution: trading_performance.png (Subplot 2)
+   - Cumulative Returns: trading_performance.png (Subplot 3)
+   - Drawdown: trading_performance.png (Subplot 4)
+   - Confusion Matrix: confusion_matrix.png
+📝 Notes:
+   - Check 'detailed_trading_log.txt' for full trade logs.
+   - Model performance metrics assume test set predictions are provided.
+   - Probability calibration may indicate uneven bins.
+===============================================================
+
+2025-06-15 17:19:44,391 - INFO - Trades exported to trades.csv
